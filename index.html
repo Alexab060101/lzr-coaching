@@ -1126,7 +1126,7 @@ body::before {
 }
 .h-step__num {
   font-family: 'Anton', sans-serif;
-  font-size: clamp(8rem, 18vw, 16rem);
+  font-size: clamp(3.5rem, 7vw, 6rem);
   line-height: 0.85;
   letter-spacing: -0.04em;
   background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold-deep) 100%);
@@ -1134,8 +1134,9 @@ body::before {
   background-clip: text;
   color: transparent;
   position: absolute;
-  bottom: -20px; right: 32px;
+  bottom: 22px; right: 28px;
   pointer-events: none;
+  opacity: 0.85;
 }
 .h-step__tag {
   display: inline-block;
@@ -1444,7 +1445,7 @@ body::before {
   .viso-letter { font-size: 3.6rem; width: 52px; }
   .h-step__title { font-size: 1.7rem; }
   .stathero-num { font-size: 7rem; }
-  .h-step__num { font-size: 7rem; }
+  .h-step__num { font-size: 3.4rem; bottom: 18px; right: 22px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .stathero-section::before, .dm-track { animation: none; }
