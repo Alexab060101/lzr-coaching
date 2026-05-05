@@ -540,7 +540,7 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
   .ms-item { flex: 1; min-width: 0; }
   .ms-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
+    font-size: 2.1rem;
     font-weight: 700;
     color: var(--gold-light);
     line-height: 1;
@@ -625,7 +625,7 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
   .hero-content { padding-top: 13vh !important; padding-bottom: 28vh !important; }
   .hero-badge { font-size: 0.54rem !important; padding: 5px 12px !important; }
   .btn-primary { padding: 14px 24px !important; font-size: 0.78rem !important; }
-  .ms-num { font-size: 1.2rem; }
+  .ms-num { font-size: 1.75rem; }
   .ms-label { font-size: 0.5rem; }
   .cta-title { font-size: 1.55rem; }
 }
@@ -1525,10 +1525,10 @@ body::before {
 </section>
 
 <!-- MOBILE STATS BAR. barra compacta solo visible en móvil -->
-<div class="mobile-stats-bar" aria-label="Resultados de LZR Coaching">
-  <div class="ms-item"><div class="ms-num">200+</div><div class="ms-label">Coaches</div></div>
-  <div class="ms-item"><div class="ms-num">2K+</div><div class="ms-label">DACH</div></div>
-  <div class="ms-item"><div class="ms-num">5.0</div><div class="ms-label">Bewertung</div></div>
+<div class="mobile-stats-bar" id="msBar" aria-label="Resultados de LZR Coaching">
+  <div class="ms-item"><div class="ms-num" data-count="200" data-suffix="+">0+</div><div class="ms-label">Coaches</div></div>
+  <div class="ms-item"><div class="ms-num" data-count="2000" data-kilo="true" data-suffix="+">0K+</div><div class="ms-label">DACH</div></div>
+  <div class="ms-item"><div class="ms-num" data-count="5.0" data-decimal="true">0.0</div><div class="ms-label">Bewertung</div></div>
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -2084,6 +2084,38 @@ const heroEl = document.getElementById('scroll-hero');
   }, { passive: true });
   window.addEventListener('resize', update);
   update();
+})();
+
+// MOBILE STATS BAR. counter sincronizado al entrar en viewport
+(function() {
+  var bar = document.getElementById('msBar');
+  if (!bar) return;
+  var nums = bar.querySelectorAll('.ms-num');
+  if (!nums.length) return;
+  var dur = 1800; // todos terminan al mismo tiempo
+  function animateOne(el) {
+    var target    = parseFloat(el.dataset.count);
+    var suffix    = el.dataset.suffix    || '';
+    var isKilo    = el.dataset.kilo      === 'true';
+    var isDecimal = el.dataset.decimal   === 'true';
+    var start = null;
+    (function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var ease = 1 - Math.pow(1 - p, 3); // ease-out cubic
+      var v = target * ease;
+      if (isKilo)         el.textContent = (v/1000).toFixed(1).replace('.0','') + 'K' + suffix;
+      else if (isDecimal) el.textContent = v.toFixed(1) + suffix;
+      else                el.textContent = Math.round(v) + suffix;
+      if (p < 1) requestAnimationFrame(step);
+    })(performance.now());
+  }
+  var obs = new IntersectionObserver(function(entries) {
+    if (!entries[0].isIntersecting) return;
+    obs.disconnect();
+    nums.forEach(animateOne);
+  }, { threshold: 0.55 });
+  obs.observe(bar);
 })();
 
 // MAGNETIC BUTTON. añadir el dcta-button al magnetic ya existente
