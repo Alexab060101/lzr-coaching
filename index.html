@@ -450,6 +450,178 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
   .section      { padding: 52px 18px; }
 }
 
+/* ══════════════════════════════════════════
+   MOBILE PRIORITY OPTIMIZATIONS — solo móvil
+   "Menos es más" · No afecta a desktop
+   ══════════════════════════════════════════ */
+
+/* Mini stats bar — visible solo en móvil, oculta en desktop */
+.mobile-stats-bar { display: none; }
+
+@media (max-width: 768px) {
+  /* HERO — texto repartido arriba/abajo, libera el centro (cara de Luis) */
+  .scroll-video-sticky {
+    align-items: stretch !important;
+  }
+  .hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding: 96px 18px 116px !important;
+    height: 100vh !important;
+    width: 100% !important;
+  }
+  .hero-badge {
+    margin-bottom: 0 !important;
+    font-size: 0.58rem !important;
+    padding: 6px 14px !important;
+  }
+  .hero-title {
+    margin-top: auto !important;
+    font-size: 2.4rem !important;
+    line-height: 1.02 !important;
+  }
+  .hero-sub {
+    display: none !important;
+  }
+  .hero-actions {
+    margin-top: 22px !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  .btn-ghost {
+    display: none !important;
+  }
+  .btn-primary {
+    width: 100% !important;
+    padding: 16px 28px !important;
+    font-size: 0.85rem !important;
+    text-align: center !important;
+    box-shadow: 0 8px 24px rgba(201,162,84,0.35) !important;
+  }
+  .hero-stats {
+    display: none !important;
+  }
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(10,18,35,0.55) 0%,
+      rgba(10,18,35,0.05) 28%,
+      rgba(10,18,35,0.05) 60%,
+      rgba(10,18,35,0.88) 100%
+    ) !important;
+  }
+
+  /* Mini stats bar — compacta, después del hero */
+  .mobile-stats-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--navy);
+    padding: 16px 14px;
+    gap: 6px;
+    border-bottom: 1px solid rgba(201,162,84,0.18);
+    text-align: center;
+  }
+  .ms-item { flex: 1; min-width: 0; }
+  .ms-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .ms-label {
+    font-size: 0.52rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-top: 5px;
+    line-height: 1.2;
+  }
+
+  /* PROBLEM — ocultar 4ª card + 2º párrafo intro */
+  .problem-section .pcard:nth-child(4) { display: none; }
+  .problem-intro p:nth-of-type(2) { display: none; }
+  .problem-intro p { font-size: 0.9rem; }
+  .pcard { padding: 18px 20px; }
+  .pcard h3 { font-size: 0.85rem; }
+  .pcard p { font-size: 0.78rem; line-height: 1.55; }
+
+  /* QUOTE — más compacta */
+  .quote-section { padding: 60px 24px; }
+  .quote-mark { font-size: 5.5rem; margin-bottom: 8px; }
+
+  /* PROCESS — más respirado */
+  .process-section .desc { font-size: 0.88rem; }
+  .step { padding: 32px 24px; }
+  .step-num { font-size: 3.5rem; margin-bottom: 8px; }
+  .step h3 { font-size: 0.95rem; }
+  .step p { font-size: 0.8rem; }
+
+  /* WHOM — ocultar últimos 2 items + descripción larga acortada */
+  .whom-list .whom-item:nth-child(n+5) { display: none; }
+  .whom-item { font-size: 0.88rem; padding: 14px 0; }
+  .whom-visual { padding: 32px 22px; }
+  .whom-visual .stat-body {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .whom-visual .mini-item:nth-child(n+3) { display: none; }
+  .big-stat { font-size: 3.5rem; }
+
+  /* TESTIMONIALS — solo 2 cards, evita scroll infinito */
+  .testi-grid .testi-card:nth-child(3) { display: none; }
+  .testi-card { padding: 28px 24px; }
+  .testi-text { font-size: 0.85rem; line-height: 1.65; margin-bottom: 18px; }
+
+  /* CTA — punchier en móvil */
+  .cta-section { padding: 72px 20px; }
+  .cta-box { padding: 48px 24px; }
+  .cta-eyebrow { font-size: 0.6rem; }
+  .cta-title { font-size: 1.85rem; line-height: 1.2; }
+  .cta-sub { font-size: 0.85rem; line-height: 1.65; margin-bottom: 28px; }
+  .btn-amber { padding: 16px 36px; font-size: 0.86rem; width: 100%; }
+
+  /* Separadores dorados entre secciones — guían el ojo */
+  .quote-section::before,
+  .process-section::before,
+  .whom-section::before,
+  .testimonials-section::before,
+  .cta-section::before {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 32px;
+    opacity: 0.55;
+  }
+  /* En quote section que es navy, el separador en gold-light */
+  .quote-section::before {
+    background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+    opacity: 0.4;
+  }
+}
+
+/* HERO mobile pequeño — refinamiento final */
+@media (max-width: 480px) {
+  .hero-title { font-size: 2rem !important; line-height: 1.05 !important; }
+  .hero-content { padding-top: 84px !important; padding-bottom: 100px !important; }
+  .hero-badge { font-size: 0.54rem !important; padding: 5px 12px !important; }
+  .ms-num { font-size: 1.2rem; }
+  .ms-label { font-size: 0.5rem; }
+  .cta-title { font-size: 1.55rem; }
+}
+
 /* ══ TESTIMONIOS ══ */
 .testimonials-section { background: var(--white); }
 .testi-grid {
@@ -652,6 +824,13 @@ body::before {
   </div>
 </section>
 
+<!-- MOBILE STATS BAR — barra compacta solo visible en móvil -->
+<div class="mobile-stats-bar" aria-label="Resultados de LZR Coaching">
+  <div class="ms-item"><div class="ms-num">200+</div><div class="ms-label">Coaches</div></div>
+  <div class="ms-item"><div class="ms-num">2K+</div><div class="ms-label">DACH</div></div>
+  <div class="ms-item"><div class="ms-num">5.0</div><div class="ms-label">Bewertung</div></div>
+</div>
+
 <!-- DAS PROBLEM — zuerst: Psychologie: Pain → Lösung -->
 <section class="problem-section section" id="problem">
   <div class="section-inner">
@@ -659,8 +838,8 @@ body::before {
       <div class="problem-intro reveal">
         <span class="eyebrow">Das Problem</span>
         <h2 class="section-h">Du kannst coachen —<br>aber <em>wer weiß das?</em></h2>
-        <p>Die meisten Coaches haben echte Kompetenz. Aber sie wissen nicht, wie sie sichtbar werden, ohne ständig zu betteln, zu pitchen oder Kaltakquise zu machen.</p>
-        <p style="margin-top:14px;">Das Problem liegt nicht in deiner Fähigkeit. Es liegt im fehlenden System.</p>
+        <p>Echte Kompetenz reicht nicht. Was fehlt: Sichtbarkeit — ohne zu betteln, ohne Kaltakquise.</p>
+        <p style="margin-top:14px;">Das Problem liegt nicht in dir. Es liegt im fehlenden System.</p>
         <!-- CTA duplicado eliminado — el usuario llega al CTA principal más abajo -->
       </div>
       <div class="problem-cards">
@@ -765,7 +944,7 @@ body::before {
       <div class="whom-visual reveal">
         <div class="big-stat">93%</div>
         <div class="stat-desc">der Coaches haben kein klares System</div>
-        <div class="stat-body">Die meisten scheitern nicht am Coaching. Sie scheitern an der Vermarktung. Das lässt sich ändern — mit den richtigen Werkzeugen und einem klaren Plan.</div>
+        <div class="stat-body">Die meisten scheitern nicht am Coaching — sondern an der Vermarktung. Das ändern wir.</div>
         <hr>
         <div>
           <div class="mini-item"><div class="mini-dot"></div>Klare Positionierung in 2 Wochen</div>
@@ -830,7 +1009,7 @@ body::before {
     <div class="cta-box reveal" id="ctaBox">
       <div class="cta-eyebrow">Bereit? Lass uns reden.</div>
       <h2 class="cta-title">Dein nächster Schritt beginnt mit einem Gespräch.</h2>
-      <p class="cta-sub">Kein Sales-Pitch, keine Verpflichtung. Nur 30 Minuten, in denen wir gemeinsam schauen, was dein Business wirklich braucht.</p>
+      <p class="cta-sub">Kein Sales-Pitch. Keine Verpflichtung. 30 Minuten Klartext für dein Business.</p>
       <a href="contacto.html" class="btn-amber">Jetzt dein Erstgespräch vereinbaren →</a>
       <p class="cta-note">Nur für ernsthafte Coaches · Begrenzte Plätze pro Monat</p>
     </div>
@@ -1027,9 +1206,24 @@ const heroEl = document.getElementById('scroll-hero');
   function playBoth()  { video.play().catch(function(){}); if (videoBg) videoBg.play().catch(function(){}); }
   function pauseBoth() { video.pause(); if (videoBg) videoBg.pause(); }
 
-  // Móvil: autoplay directo — no hay zona sticky que esperar
+  // Móvil: pausa en primer fotograma, arranca al primer scroll/touch
   if (window.matchMedia('(max-width: 768px)').matches) {
-    playBoth();
+    pauseBoth();
+    video.currentTime = 0;
+    if (videoBg) videoBg.currentTime = 0;
+    var startedMobile = false;
+    function startMobile() {
+      if (startedMobile) return;
+      startedMobile = true;
+      playBoth();
+      window.removeEventListener('scroll', onScrollStart);
+      hero.removeEventListener('touchstart', startMobile);
+    }
+    function onScrollStart() {
+      if (window.scrollY > 8) startMobile();
+    }
+    window.addEventListener('scroll', onScrollStart, { passive: true });
+    hero.addEventListener('touchstart', startMobile, { passive: true });
     return;
   }
 
