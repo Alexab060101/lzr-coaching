@@ -984,41 +984,49 @@ body::before {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 18px;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 56px;
   position: relative;
+  align-items: center;
 }
+.viso-list { display: flex; flex-direction: column; gap: 16px; }
 .viso-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(201,162,84,0.22);
   border-radius: 20px;
-  padding: 40px 28px;
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  gap: 26px;
   transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), background 0.4s, border-color 0.4s;
   position: relative;
   overflow: hidden;
 }
-.viso-card:hover { transform: translateY(-8px); background: rgba(201,162,84,0.06); border-color: var(--gold); }
+.viso-card:hover { transform: translateX(6px); background: rgba(201,162,84,0.06); border-color: var(--gold); }
 .viso-letter {
   font-family: 'Anton', sans-serif;
-  font-size: 5rem;
+  font-size: 4.4rem;
   line-height: 0.85;
   background: linear-gradient(180deg, var(--gold-light), var(--gold));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  margin-bottom: 18px;
-  display: block;
+  margin-bottom: 0;
+  flex-shrink: 0;
+  width: 64px;
+  text-align: center;
 }
+.viso-card-content { flex: 1; min-width: 0; }
 .viso-card h3 {
   color: #fff;
   font-size: 1.05rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
 }
 .viso-card p {
   color: rgba(255,255,255,0.65);
-  font-size: 0.85rem;
-  line-height: 1.65;
+  font-size: 0.88rem;
+  line-height: 1.55;
 }
 .viso-photo {
   background: var(--soft, rgba(255,255,255,0.04));
@@ -1027,6 +1035,7 @@ body::before {
   overflow: hidden;
   aspect-ratio: 4/5;
   position: relative;
+  width: 100%;
 }
 .viso-photo img {
   width: 100%; height: 100%; object-fit: cover;
@@ -1417,7 +1426,8 @@ body::before {
   .bento-head { grid-template-columns: 1fr; gap: 24px; }
   .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; min-height: auto; }
   .bento-card--big { grid-row: auto; min-height: 320px; }
-  .viso-grid { grid-template-columns: 1fr 1fr; }
+  .viso-grid { grid-template-columns: 1fr; gap: 36px; }
+  .viso-photo { max-width: 420px; margin: 0 auto; }
   .h-process { height: auto; }
   .h-process__sticky { position: relative; height: auto; }
   .h-process__track { flex-direction: column; padding: 50px 6vw; gap: 22px; }
@@ -1430,7 +1440,8 @@ body::before {
   .dm-track { font-size: 1.4rem; gap: 36px; }
   .mirror-section { padding: 80px 22px; }
   .bento-section, .viso-section, .stathero-section, .voices-section, .disrupt-cta { padding-left: 22px; padding-right: 22px; padding-top: 80px; padding-bottom: 80px; }
-  .viso-grid { grid-template-columns: 1fr; gap: 14px; }
+  .viso-card { padding: 18px 22px; gap: 18px; }
+  .viso-letter { font-size: 3.6rem; width: 52px; }
   .h-step__title { font-size: 1.7rem; }
   .stathero-num { font-size: 7rem; }
   .h-step__num { font-size: 7rem; }
@@ -1541,30 +1552,40 @@ body::before {
     </div>
   </header>
   <div class="viso-grid">
-    <article class="viso-card reveal">
-      <span class="viso-letter">V</span>
-      <h3>Vision</h3>
-      <p>Wer du bist, wen du erreichst, was du wirklich änderst. Glasklar.</p>
-    </article>
-    <article class="viso-card reveal reveal-delay-1">
-      <span class="viso-letter">I</span>
-      <h3>Identität</h3>
-      <p>Eine Marke, die nach dir riecht. Nicht nach jedem anderen Coach.</p>
-    </article>
-    <div class="viso-photo reveal reveal-delay-2">
+    <div class="viso-list">
+      <article class="viso-card reveal">
+        <span class="viso-letter">V</span>
+        <div class="viso-card-content">
+          <h3>Vision</h3>
+          <p>Wer du bist, wen du erreichst, was du wirklich änderst. Glasklar.</p>
+        </div>
+      </article>
+      <article class="viso-card reveal reveal-delay-1">
+        <span class="viso-letter">I</span>
+        <div class="viso-card-content">
+          <h3>Identität</h3>
+          <p>Eine Marke, die nach dir riecht. Nicht nach jedem anderen Coach.</p>
+        </div>
+      </article>
+      <article class="viso-card reveal reveal-delay-2">
+        <span class="viso-letter">S</span>
+        <div class="viso-card-content">
+          <h3>System</h3>
+          <p>Content der konvertiert. Prozess der trägt. Skalierbar, replizierbar.</p>
+        </div>
+      </article>
+      <article class="viso-card reveal reveal-delay-3">
+        <span class="viso-letter">O</span>
+        <div class="viso-card-content">
+          <h3>Output</h3>
+          <p>Konstante Anfragen. Volle Kalender. Ein Business, das ohne Pitching läuft.</p>
+        </div>
+      </article>
+    </div>
+    <div class="viso-photo reveal">
       <img src="assets/hero-poster.jpg" alt="Luis Zabala Rodriguez" loading="lazy">
       <span class="viso-photo-tag">Luis · Coach für Coaches</span>
     </div>
-    <article class="viso-card reveal reveal-delay-3">
-      <span class="viso-letter">S</span>
-      <h3>System</h3>
-      <p>Content der konvertiert. Prozess der trägt. Skalierbar, replizierbar.</p>
-    </article>
-    <article class="viso-card reveal">
-      <span class="viso-letter">O</span>
-      <h3>Output</h3>
-      <p>Konstante Anfragen. Volle Kalender. Ein Business, das ohne Pitching läuft.</p>
-    </article>
   </div>
 </section>
 
