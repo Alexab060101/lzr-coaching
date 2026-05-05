@@ -981,15 +981,19 @@ body::before {
 }
 .viso-head h2 em { font-style: italic; color: var(--gold-light); }
 .viso-grid {
-  max-width: 1200px;
+  max-width: 720px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 56px;
   position: relative;
-  align-items: center;
 }
 .viso-list { display: flex; flex-direction: column; gap: 16px; }
+.viso-mini-photo {
+  width: 64px; height: 64px;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center top;
+  flex-shrink: 0;
+  border: 1px solid rgba(201,162,84,0.3);
+}
 .viso-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(201,162,84,0.22);
@@ -1429,8 +1433,7 @@ body::before {
   .bento-head { grid-template-columns: 1fr; gap: 24px; }
   .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; min-height: auto; }
   .bento-card--big { grid-row: auto; min-height: 320px; }
-  .viso-grid { grid-template-columns: 1fr; gap: 36px; }
-  .viso-photo { max-width: 420px; margin: 0 auto; }
+  .viso-grid { max-width: 100%; }
   .h-process { height: auto; }
   .h-process__sticky { position: relative; height: auto; }
   .h-process__track { flex-direction: column; padding: 50px 6vw; gap: 22px; }
@@ -1584,10 +1587,13 @@ body::before {
           <p>Konstante Anfragen. Volle Kalender. Ein Business, das ohne Pitching läuft.</p>
         </div>
       </article>
-    </div>
-    <div class="viso-photo reveal">
-      <img src="assets/hero-poster.jpg" alt="Luis Zabala Rodriguez" loading="lazy">
-      <span class="viso-photo-tag">Luis · Coach für Coaches</span>
+      <article class="viso-card reveal">
+        <img class="viso-mini-photo" src="assets/hero-poster.jpg" alt="Luis Zabala Rodriguez" loading="lazy">
+        <div class="viso-card-content">
+          <h3>Luis</h3>
+          <p>Coach für Coaches.</p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
