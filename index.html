@@ -38,7 +38,7 @@
   "priceRange": "<!-- REVISAR -->"
 }
 </script>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -755,6 +755,686 @@ body::before {
 /* Los hijos de las cards deben estar por encima del glow */
 .step > *, .pcard > * { position: relative; z-index: 1; }
 
+
+/* ════════════════════════════════════════════════
+   NUEVO BLOQUE — REDISEÑO DISRUPTIVO POST-HERO
+   Mantiene paleta navy/gold/beige · suma Anton + asimetría
+   ════════════════════════════════════════════════ */
+
+/* === Marquee disruptivo navy === */
+.disrupt-marquee {
+  background: var(--navy);
+  padding: 28px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(201,162,84,0.2);
+  border-bottom: 1px solid rgba(201,162,84,0.2);
+}
+.dm-track {
+  display: flex; gap: 56px; align-items: center;
+  white-space: nowrap;
+  animation: dmScroll 32s linear infinite;
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(1.6rem, 3.6vw, 3rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+.dm-track em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--gold-light); font-weight: 600; text-transform: none; letter-spacing: 0; }
+.dm-sep { color: var(--gold); opacity: 0.6; flex-shrink: 0; }
+@keyframes dmScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.disrupt-marquee:hover .dm-track { animation-play-state: paused; }
+
+/* === Mirror question section === */
+.mirror-section {
+  background: var(--white);
+  padding: 130px 6vw;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.mirror-section::before, .mirror-section::after {
+  content: '';
+  position: absolute;
+  width: 60px; height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  left: 50%; transform: translateX(-50%);
+}
+.mirror-section::before { top: 60px; }
+.mirror-section::after { bottom: 60px; }
+.mirror-eyebrow {
+  font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase;
+  font-weight: 700; color: var(--gold-deep);
+  margin-bottom: 36px;
+}
+.mirror-question {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 6.5vw, 6rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.05;
+  color: var(--navy);
+  max-width: 1100px;
+  margin: 0 auto 28px;
+  letter-spacing: -0.01em;
+}
+.mirror-question .word { display: inline-block; opacity: 0; transform: translateY(20px); transition: opacity 0.7s, transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+.mirror-question .word.is-in { opacity: 1; transform: translateY(0); }
+.mirror-question strong {
+  font-style: normal;
+  color: var(--gold-deep);
+  font-weight: 700;
+  position: relative;
+}
+.mirror-question strong::after {
+  content: '';
+  position: absolute;
+  bottom: 6px; left: 0; right: 0;
+  height: 6px;
+  background: var(--gold);
+  opacity: 0.3;
+  z-index: -1;
+}
+.mirror-sub {
+  font-size: 1rem;
+  color: var(--text-mid);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* === Problem bento asimétrico === */
+.bento-section {
+  background: var(--beige-light);
+  padding: 120px 6vw;
+}
+.bento-head {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+}
+.bento-head .eyebrow { color: var(--gold-deep); font-size: 0.7rem; letter-spacing: 0.22em; font-weight: 700; text-transform: uppercase; }
+.bento-head h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--navy);
+  margin-top: 12px;
+}
+.bento-head h2 em { font-style: italic; color: var(--gold-deep); }
+.bento-head .desc {
+  color: var(--text-mid);
+  font-size: 0.97rem;
+  line-height: 1.75;
+  font-weight: 300;
+}
+.bento-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 18px;
+  min-height: 540px;
+}
+.bento-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(201,162,84,0.22);
+  border-radius: 22px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s, border-color 0.45s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  --sx: 50%; --sy: 50%;
+}
+.bento-card::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at var(--sx) var(--sy), rgba(201,162,84,0.18), transparent 55%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.bento-card:hover { transform: translateY(-6px); border-color: var(--gold); box-shadow: 0 24px 60px rgba(26,44,80,0.1); }
+.bento-card:hover::before { opacity: 1; }
+.bento-card > * { position: relative; z-index: 1; }
+.bento-card--big {
+  grid-row: 1 / 3;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: #fff;
+  padding: 50px 44px;
+  border-color: rgba(201,162,84,0.3);
+}
+.bento-stat {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(7rem, 14vw, 12rem);
+  font-weight: 400;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 60%, var(--gold-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 18px;
+}
+.bento-card--big h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 14px;
+}
+.bento-card--big p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+}
+.bento-card-icon { font-size: 1.6rem; margin-bottom: 14px; }
+.bento-card h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+.bento-card p.bcp { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; }
+
+/* === Method V.I.S.O. === */
+.viso-section {
+  background: var(--navy);
+  padding: 130px 6vw;
+  position: relative;
+  overflow: hidden;
+}
+.viso-section::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -150px;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,162,84,0.15), transparent 70%);
+  pointer-events: none;
+}
+.viso-head {
+  max-width: 1200px;
+  margin: 0 auto 70px;
+  text-align: center;
+  position: relative;
+}
+.viso-head .eyebrow {
+  color: var(--gold-light);
+  font-size: 0.7rem; letter-spacing: 0.22em; font-weight: 700; text-transform: uppercase;
+}
+.viso-head h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: #fff;
+  margin-top: 12px;
+}
+.viso-head h2 em { font-style: italic; color: var(--gold-light); }
+.viso-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 18px;
+  position: relative;
+}
+.viso-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,162,84,0.22);
+  border-radius: 20px;
+  padding: 40px 28px;
+  transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), background 0.4s, border-color 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+.viso-card:hover { transform: translateY(-8px); background: rgba(201,162,84,0.06); border-color: var(--gold); }
+.viso-letter {
+  font-family: 'Anton', sans-serif;
+  font-size: 5rem;
+  line-height: 0.85;
+  background: linear-gradient(180deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 18px;
+  display: block;
+}
+.viso-card h3 {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.viso-card p {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+.viso-photo {
+  background: var(--soft, rgba(255,255,255,0.04));
+  border: 1px solid rgba(201,162,84,0.3);
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 4/5;
+  position: relative;
+}
+.viso-photo img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: contrast(1.05) saturate(0.95);
+  transition: transform 1.4s cubic-bezier(0.16,1,0.3,1);
+}
+.viso-photo:hover img { transform: scale(1.06); }
+.viso-photo-tag {
+  position: absolute;
+  bottom: 16px; left: 16px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border-radius: 100px;
+  padding: 8px 18px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+}
+
+/* === Process horizontal pinned === */
+.h-process {
+  background: var(--white);
+  height: 320vh;
+  position: relative;
+}
+.h-process__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.h-process__head {
+  padding: 80px 6vw 0;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+.h-process__head .eyebrow { color: var(--gold-deep); font-size: 0.7rem; letter-spacing: 0.22em; font-weight: 700; text-transform: uppercase; }
+.h-process__head h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--navy);
+  margin-top: 12px;
+}
+.h-process__head h2 em { font-style: italic; color: var(--gold-deep); }
+.h-process__track {
+  flex: 1;
+  display: flex;
+  gap: 4vw;
+  padding: 0 8vw;
+  align-items: center;
+  will-change: transform;
+}
+.h-step {
+  flex: 0 0 auto;
+  width: min(720px, 80vw);
+  height: 64vh;
+  background: var(--beige-light);
+  border: 1px solid rgba(201,162,84,0.2);
+  border-radius: 28px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(26,44,80,0.08);
+}
+.h-step::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,162,84,0.18), transparent 70%);
+  pointer-events: none;
+}
+.h-step--accent {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+  color: #fff;
+  border-color: rgba(201,162,84,0.3);
+}
+.h-step__num {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(8rem, 18vw, 16rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  background: linear-gradient(180deg, var(--gold-light) 0%, var(--gold-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: absolute;
+  bottom: -20px; right: 32px;
+  pointer-events: none;
+}
+.h-step__tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gold-deep);
+  background: rgba(201,162,84,0.15);
+  padding: 8px 16px;
+  border-radius: 100px;
+  position: relative;
+  align-self: flex-start;
+}
+.h-step--accent .h-step__tag { color: var(--gold-light); background: rgba(201,162,84,0.18); }
+.h-step__title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--navy);
+  position: relative;
+  margin-top: 28px;
+}
+.h-step--accent .h-step__title { color: #fff; }
+.h-step__title em { font-style: italic; color: var(--gold-deep); }
+.h-step--accent .h-step__title em { color: var(--gold-light); }
+.h-step__body {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-mid);
+  margin-top: 18px;
+  max-width: 520px;
+  position: relative;
+}
+.h-step--accent .h-step__body { color: rgba(255,255,255,0.7); }
+.h-process__progress {
+  position: absolute;
+  bottom: 30px; left: 8vw; right: 8vw;
+  height: 2px;
+  background: rgba(26,44,80,0.1);
+}
+.h-process__progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold));
+  transition: width 0.05s linear;
+}
+
+/* === Stat hero block === */
+.stathero-section {
+  background: var(--beige-light);
+  padding: 140px 6vw;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.stathero-section::before {
+  content: '';
+  position: absolute;
+  width: 80vmin; height: 80vmin;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,162,84,0.15), transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: stathPulse 7s ease-in-out infinite;
+}
+@keyframes stathPulse { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; } 50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; } }
+.stathero-eyebrow {
+  font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase;
+  font-weight: 700; color: var(--gold-deep);
+  margin-bottom: 28px; position: relative;
+}
+.stathero-num {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(8rem, 22vw, 22rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  background: linear-gradient(180deg, var(--navy) 0%, var(--gold-deep) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 28px;
+  position: relative;
+}
+.stathero-claim {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--navy);
+  max-width: 760px;
+  margin: 0 auto 22px;
+  position: relative;
+}
+.stathero-sub {
+  font-size: 1rem;
+  color: var(--text-mid);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: 1.75;
+  font-weight: 300;
+  position: relative;
+}
+
+/* === Wall of voices === */
+.voices-section {
+  background: var(--white);
+  padding: 130px 6vw;
+}
+.voices-head {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+.voices-head .eyebrow { color: var(--gold-deep); font-size: 0.7rem; letter-spacing: 0.22em; font-weight: 700; text-transform: uppercase; }
+.voices-head h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--navy);
+  margin-top: 12px;
+}
+.voices-head h2 em { font-style: italic; color: var(--gold-deep); }
+.voices-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  columns: 3;
+  column-gap: 22px;
+}
+.voice-card {
+  background: var(--beige-light);
+  border: 1px solid rgba(201,162,84,0.18);
+  border-radius: 20px;
+  padding: 30px 28px;
+  margin-bottom: 22px;
+  break-inside: avoid;
+  transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
+  position: relative;
+}
+.voice-card:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 16px 40px rgba(26,44,80,0.08); }
+.voice-card--accent { background: var(--navy); color: #fff; border-color: rgba(201,162,84,0.3); }
+.voice-card--quote { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%); color: #fff; }
+.voice-stars {
+  color: var(--gold);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+.voice-card--accent .voice-stars { color: var(--gold-light); }
+.voice-card--quote .voice-stars { color: #fff; opacity: 0.8; }
+.voice-text {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  font-style: italic;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.voice-card--accent .voice-text { color: rgba(255,255,255,0.92); }
+.voice-card--quote .voice-text {
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.voice-author { display: flex; align-items: center; gap: 12px; }
+.voice-avatar {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--navy-soft));
+  color: var(--gold-light);
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.voice-card--accent .voice-avatar { background: var(--gold); color: var(--navy); }
+.voice-card--quote .voice-avatar { background: rgba(255,255,255,0.25); color: #fff; }
+.voice-author strong { font-size: 0.85rem; font-weight: 700; color: var(--navy); display: block; }
+.voice-author span { font-size: 0.75rem; color: var(--text-soft); }
+.voice-card--accent .voice-author strong { color: #fff; }
+.voice-card--accent .voice-author span { color: rgba(255,255,255,0.55); }
+.voice-card--quote .voice-author strong { color: #fff; }
+.voice-card--quote .voice-author span { color: rgba(255,255,255,0.7); }
+.voice-placeholder-badge {
+  position: absolute; top: 12px; right: 12px;
+  background: rgba(168,125,53,0.12);
+  color: var(--gold-deep);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-weight: 700;
+}
+
+/* === CTA disruptivo final === */
+.disrupt-cta {
+  background: var(--navy);
+  padding: 140px 6vw 130px;
+  position: relative;
+  overflow: hidden;
+}
+.disrupt-cta::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+  opacity: 0.6;
+}
+.disrupt-cta::after {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,162,84,0.18), transparent 65%);
+  bottom: -200px; right: -150px;
+  pointer-events: none;
+}
+.dcta-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+}
+.dcta-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--gold-light);
+  margin-bottom: 30px;
+  display: block;
+}
+.dcta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.4rem, 6.5vw, 6rem);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 28px;
+  letter-spacing: -0.01em;
+}
+.dcta-title strong { font-style: normal; color: var(--gold-light); font-weight: 700; }
+.dcta-sub {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.65);
+  max-width: 560px;
+  margin: 0 auto 50px;
+}
+.dcta-button {
+  display: inline-block;
+  padding: 22px 56px;
+  background: var(--gold);
+  color: var(--navy);
+  border-radius: 100px;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  position: relative;
+  box-shadow: 0 14px 40px rgba(201,162,84,0.45);
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s;
+  will-change: transform;
+}
+.dcta-button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 56px rgba(201,162,84,0.6);
+  background: var(--gold-light);
+}
+.dcta-note {
+  margin-top: 24px;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.4);
+}
+
+/* === Mobile overrides nuevas secciones === */
+@media (max-width: 960px) {
+  .bento-head { grid-template-columns: 1fr; gap: 24px; }
+  .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; min-height: auto; }
+  .bento-card--big { grid-row: auto; min-height: 320px; }
+  .viso-grid { grid-template-columns: 1fr 1fr; }
+  .h-process { height: auto; }
+  .h-process__sticky { position: relative; height: auto; }
+  .h-process__track { flex-direction: column; padding: 50px 6vw; gap: 22px; }
+  .h-step { width: 100%; height: auto; min-height: 380px; padding: 36px 28px; }
+  .h-process__progress { display: none; }
+  .voices-grid { columns: 1; max-width: 480px; margin-left: auto; margin-right: auto; }
+}
+@media (max-width: 768px) {
+  .disrupt-marquee { padding: 18px 0; }
+  .dm-track { font-size: 1.4rem; gap: 36px; }
+  .mirror-section { padding: 80px 22px; }
+  .bento-section, .viso-section, .stathero-section, .voices-section, .disrupt-cta { padding-left: 22px; padding-right: 22px; padding-top: 80px; padding-bottom: 80px; }
+  .viso-grid { grid-template-columns: 1fr; gap: 14px; }
+  .h-step__title { font-size: 1.7rem; }
+  .stathero-num { font-size: 7rem; }
+  .h-step__num { font-size: 7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stathero-section::before, .dm-track { animation: none; }
+}
+
 </style>
 </head>
 <body>
@@ -835,188 +1515,217 @@ body::before {
   <div class="ms-item"><div class="ms-num">5.0</div><div class="ms-label">Bewertung</div></div>
 </div>
 
-<!-- DAS PROBLEM — zuerst: Psychologie: Pain → Lösung -->
-<section class="problem-section section" id="problem">
-  <div class="section-inner">
-    <div class="problem-grid">
-      <div class="problem-intro reveal">
-        <span class="eyebrow">Das Problem</span>
-        <h2 class="section-h">Du kannst coachen —<br>aber <em>wer weiß das?</em></h2>
-        <p>Echte Kompetenz reicht nicht. Was fehlt: Sichtbarkeit — ohne zu betteln, ohne Kaltakquise.</p>
-        <p style="margin-top:14px;">Das Problem liegt nicht in dir. Es liegt im fehlenden System.</p>
-        <!-- CTA duplicado eliminado — el usuario llega al CTA principal más abajo -->
-      </div>
-      <div class="problem-cards">
-        <div class="pcard reveal reveal-delay-1">
-          <div class="pcard-icon">🌫️</div>
-          <div><h3>Keine klare Positionierung</h3><p>Deine Botschaft ist für jeden — also für niemanden. Niemand erkennt sich in dir wieder.</p></div>
-        </div>
-        <div class="pcard reveal reveal-delay-2">
-          <div class="pcard-icon">📭</div>
-          <div><h3>Content ohne Ergebnis</h3><p>Du postest regelmäßig, bekommst vielleicht Likes — aber keine Anfragen.</p></div>
-        </div>
-        <div class="pcard reveal reveal-delay-3">
-          <div class="pcard-icon">🔁</div>
-          <div><h3>Kein reproduzierbarer Prozess</h3><p>Wenn ein Interessent kommt, weißt du nicht wie du ihn zum Kunden machst.</p></div>
-        </div>
-        <div class="pcard reveal">
-          <div class="pcard-icon">⏳</div>
-          <div><h3>Du arbeitest im Business, nicht daran</h3><p>Du bist beschäftigt — aber mit dem Falschen. Wachstum kommt zu kurz.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- ═══════════════════════════════════════════════
+     REDISEÑO DISRUPTIVO POST-HERO · 8 secciones
+     ═══════════════════════════════════════════════ -->
 
-<!-- TRUST BAR — después del problema, antes de la solución -->
-<div class="trust-bar">
-  <div class="trust-track">
-    <span class="trust-item">🎯 Klare Positionierung</span><span class="trust-sep">·</span>
-    <span class="trust-item">📈 Content → Gespräche</span><span class="trust-sep">·</span>
-    <span class="trust-item">🔄 Reproduzierbarer Prozess</span><span class="trust-sep">·</span>
-    <span class="trust-item">🧠 Mindset & Strategie</span><span class="trust-sep">·</span>
-    <span class="trust-item">💡 Ohne Kaltakquise</span><span class="trust-sep">·</span>
-    <span class="trust-item">🌍 DACH-Markt</span><span class="trust-sep">·</span>
-    <span class="trust-item">🎯 Klare Positionierung</span><span class="trust-sep">·</span>
-    <span class="trust-item">📈 Content → Gespräche</span><span class="trust-sep">·</span>
-    <span class="trust-item">🔄 Reproduzierbarer Prozess</span><span class="trust-sep">·</span>
-    <span class="trust-item">🧠 Mindset & Strategie</span><span class="trust-sep">·</span>
-    <span class="trust-item">💡 Ohne Kaltakquise</span><span class="trust-sep">·</span>
-    <span class="trust-item">🌍 DACH-Markt</span><span class="trust-sep">·</span>
+<!-- 1. MARQUEE DISRUPTIVO — corta el silencio post-hero -->
+<div class="disrupt-marquee" aria-hidden="true">
+  <div class="dm-track">
+    <span>Schluss mit Kaltakquise</span><span class="dm-sep">/</span>
+    <span><em>Sichtbar</em> oder unsichtbar — keine Mitte</span><span class="dm-sep">/</span>
+    <span>Coaching ist <em>kein Bittsteller-Job</em></span><span class="dm-sep">/</span>
+    <span>System &gt; Glück</span><span class="dm-sep">/</span>
+    <span>Klar. Gebucht. <em>Wiederholbar.</em></span><span class="dm-sep">/</span>
+    <span>Schluss mit Kaltakquise</span><span class="dm-sep">/</span>
+    <span><em>Sichtbar</em> oder unsichtbar — keine Mitte</span><span class="dm-sep">/</span>
+    <span>Coaching ist <em>kein Bittsteller-Job</em></span><span class="dm-sep">/</span>
+    <span>System &gt; Glück</span><span class="dm-sep">/</span>
+    <span>Klar. Gebucht. <em>Wiederholbar.</em></span><span class="dm-sep">/</span>
   </div>
 </div>
 
-<!-- QUOTE -->
-<section class="quote-section">
-  <div class="q-glow"></div><div class="q-glow2"></div>
-  <div class="quote-inner reveal">
-    <span class="quote-mark">"</span>
-    <p class="quote-text">Du bist nicht erfolglos, weil du schlecht coachst.<br>Du bist es, weil niemand weiß, <strong>was du wirklich kannst.</strong></p>
-    <p class="quote-author">— Luis Zabala Rodriguez · <span>Coach für Coaches</span></p>
+<!-- 2. MIRROR QUESTION — pregunta espejo gigante -->
+<section class="mirror-section" id="problem">
+  <span class="mirror-eyebrow">Sei ehrlich.</span>
+  <h2 class="mirror-question" id="mirrorQ">
+    Du kannst coachen — aber <strong>wer weiß das?</strong>
+  </h2>
+  <p class="mirror-sub">Echte Kompetenz reicht nicht. Was fehlt: ein System, das dich sichtbar macht — ohne zu betteln, ohne Kaltakquise.</p>
+</section>
+
+<!-- 3. PROBLEM BENTO ASIMÉTRICO — 1 stat enorme + 3 problemas -->
+<section class="bento-section">
+  <header class="bento-head">
+    <div class="reveal">
+      <span class="eyebrow">Die Realität im DACH-Markt</span>
+      <h2>9 von 10 Coaches scheitern nicht am <em>Coaching.</em></h2>
+    </div>
+    <p class="desc reveal">Sie scheitern an der Sichtbarkeit. An der Positionierung. An einem Prozess, der ohne ständiges Pitching funktioniert. Hier sind die vier Engpässe — und das eine Muster dahinter.</p>
+  </header>
+  <div class="bento-grid">
+    <article class="bento-card bento-card--big reveal">
+      <div class="bento-stat" id="bigStat" data-target="93">93%</div>
+      <h3>der Coaches haben kein klares System.</h3>
+      <p>Sie posten, sie pitchen, sie hoffen — und das jede Woche neu. Mit System wird daraus ein Kundenstrom. Ohne System bleibt es Lotterie.</p>
+    </article>
+    <article class="bento-card reveal reveal-delay-1">
+      <div class="bento-card-icon">🌫️</div>
+      <h4>Botschaft für alle = für niemanden</h4>
+      <p class="bcp">Keine klare Positionierung. Niemand erkennt sich in dir wieder.</p>
+    </article>
+    <article class="bento-card reveal reveal-delay-2">
+      <div class="bento-card-icon">📭</div>
+      <h4>Likes statt Anfragen</h4>
+      <p class="bcp">Content der unterhält — aber nicht konvertiert. Reichweite ohne Umsatz.</p>
+    </article>
+    <article class="bento-card reveal reveal-delay-3">
+      <div class="bento-card-icon">🔁</div>
+      <h4>Kein reproduzierbarer Verkaufs-Prozess</h4>
+      <p class="bcp">Interessenten kommen — und gehen. Wieder. Und wieder.</p>
+    </article>
+    <article class="bento-card reveal">
+      <div class="bento-card-icon">⏳</div>
+      <h4>Im Business, nicht am Business</h4>
+      <p class="bcp">Beschäftigt — aber mit dem Falschen. Wachstum kommt zu kurz.</p>
+    </article>
   </div>
 </section>
 
-<!-- PROZESS -->
-<section class="process-section section" id="prozess">
-  <div class="section-inner">
-    <div class="process-header">
-      <div class="reveal">
-        <span class="eyebrow">Die Lösung</span>
-        <h2 class="section-h">Dein Weg von <em>unsichtbar</em> zu gebucht</h2>
-      </div>
-      <p class="desc reveal">Kein Geheimnis. Ein klarer, wiederholbarer Prozess — der funktioniert, weil er auf deinen Stärken aufbaut.</p>
+<!-- 4. METHOD V.I.S.O. — 4 pilares + foto Luis -->
+<section class="viso-section" id="prozess">
+  <header class="viso-head">
+    <div class="reveal">
+      <span class="eyebrow">Mein Ansatz · Das Fundament</span>
+      <h2>Vier Säulen. <em>Ein System.</em></h2>
     </div>
-    <div class="steps-grid">
-      <div class="step reveal reveal-delay-1">
-        <div class="step-num">01</div>
-        <h3>Positionierung schärfen</h3>
-        <p>Wir definieren präzise: Für wen du bist, welches Problem du löst und warum ausgerechnet du.</p>
-        <span class="step-tag">Fundament</span>
-      </div>
-      <div class="step reveal reveal-delay-2">
-        <div class="step-num">02</div>
-        <h3>Content der konvertiert</h3>
-        <p>Jeder Post hat eine Funktion. Du lernst, Inhalte zu erstellen, die Gespräche — nicht nur Likes — erzeugen.</p>
-        <span class="step-tag">Sichtbarkeit</span>
-      </div>
-      <div class="step reveal reveal-delay-3">
-        <div class="step-num">03</div>
-        <h3>Kunden-Prozess aufbauen</h3>
-        <p>Vom ersten Kontakt bis zur Conversion — ein klares System, ohne Kaltakquise.</p>
-        <span class="step-tag">Umsatz</span>
-      </div>
+  </header>
+  <div class="viso-grid">
+    <article class="viso-card reveal">
+      <span class="viso-letter">V</span>
+      <h3>Vision</h3>
+      <p>Wer du bist, wen du erreichst, was du wirklich änderst. Glasklar.</p>
+    </article>
+    <article class="viso-card reveal reveal-delay-1">
+      <span class="viso-letter">I</span>
+      <h3>Identität</h3>
+      <p>Eine Marke, die nach dir riecht. Nicht nach jedem anderen Coach.</p>
+    </article>
+    <div class="viso-photo reveal reveal-delay-2">
+      <img src="assets/hero-poster.jpg" alt="Luis Zabala Rodriguez" loading="lazy">
+      <span class="viso-photo-tag">Luis · Coach für Coaches</span>
     </div>
+    <article class="viso-card reveal reveal-delay-3">
+      <span class="viso-letter">S</span>
+      <h3>System</h3>
+      <p>Content der konvertiert. Prozess der trägt. Skalierbar, replizierbar.</p>
+    </article>
+    <article class="viso-card reveal">
+      <span class="viso-letter">O</span>
+      <h3>Output</h3>
+      <p>Konstante Anfragen. Volle Kalender. Ein Business, das ohne Pitching läuft.</p>
+    </article>
   </div>
 </section>
 
-<!-- FÜR WEN -->
-<section class="whom-section section" id="fuer-wen">
-  <div class="section-inner">
-    <div class="whom-grid">
-      <div>
-        <span class="eyebrow reveal">Für wen</span>
-        <h2 class="section-h reveal">Das ist für dich, <em>wenn...</em></h2>
-        <ul class="whom-list">
-          <li class="whom-item reveal"><div class="whom-check">✓</div>Du Coach bist und endlich zahlende Kunden gewinnen willst — ohne jeden Abend zu pitchen</li>
-          <li class="whom-item reveal"><div class="whom-check">✓</div>Du Content erstellst, aber er führt zu keinen Gesprächen</li>
-          <li class="whom-item reveal"><div class="whom-check">✓</div>Du weißt, dass dein Angebot gut ist — aber nicht wie du es vermarktest</li>
-          <li class="whom-item reveal"><div class="whom-check">✓</div>Du keine Zeit mehr für Trial & Error hast</li>
-          <li class="whom-item reveal"><div class="whom-check">✓</div>Du ein reproduzierbares System willst, das auch ohne dich täglich läuft</li>
-          <li class="whom-item reveal"><div class="whom-check">✓</div>Du bereit bist, wirklich in dein Business zu investieren</li>
-        </ul>
-      </div>
-      <div class="whom-visual reveal">
-        <div class="big-stat">93%</div>
-        <div class="stat-desc">der Coaches haben kein klares System</div>
-        <div class="stat-body">Die meisten scheitern nicht am Coaching — sondern an der Vermarktung. Das ändern wir.</div>
-        <hr>
-        <div>
-          <div class="mini-item"><div class="mini-dot"></div>Klare Positionierung in 2 Wochen</div>
-          <div class="mini-item"><div class="mini-dot"></div>Content-Strategie, die funktioniert</div>
-          <div class="mini-item"><div class="mini-dot"></div>Erster Kunden-Prozess aufgebaut</div>
-          <div class="mini-item"><div class="mini-dot"></div>Vollständig remote & flexibel</div>
-        </div>
-      </div>
+<!-- 5. PROCESS HORIZONTAL PINNED — efecto cinemático tipo Apple -->
+<section class="h-process" id="weg">
+  <div class="h-process__sticky">
+    <div class="h-process__head reveal">
+      <span class="eyebrow">Der Weg</span>
+      <h2>Drei Schritte. <em>Von unsichtbar zu gebucht.</em></h2>
     </div>
+    <div class="h-process__track" id="hproctrack">
+      <article class="h-step">
+        <span class="h-step__tag">Schritt 01 · Fundament</span>
+        <h3 class="h-step__title">Positionierung <em>schärfen</em></h3>
+        <p class="h-step__body">Wir definieren präzise: Für wen du bist, welches Problem du löst und warum ausgerechnet du. Kein "für alle Coaches" — eine Botschaft, in der sich genau dein Idealkunde wiedererkennt.</p>
+        <span class="h-step__num">01</span>
+      </article>
+      <article class="h-step h-step--accent">
+        <span class="h-step__tag">Schritt 02 · Sichtbarkeit</span>
+        <h3 class="h-step__title">Content der <em>konvertiert</em></h3>
+        <p class="h-step__body">Jeder Post mit Funktion. Du lernst, Inhalte zu erstellen, die nicht Likes — sondern Gespräche und Anfragen — erzeugen. Reproduzierbar, ohne 8 Stunden pro Woche zu posten.</p>
+        <span class="h-step__num">02</span>
+      </article>
+      <article class="h-step">
+        <span class="h-step__tag">Schritt 03 · Umsatz</span>
+        <h3 class="h-step__title">Kunden-Prozess <em>aufbauen</em></h3>
+        <p class="h-step__body">Vom ersten DM bis zur Buchung — ein natürlicher Weg. Kein aggressives Verkaufen. Ein Prozess, der sich richtig anfühlt — für dich und deine Kunden.</p>
+        <span class="h-step__num">03</span>
+      </article>
+    </div>
+    <div class="h-process__progress"><div class="h-process__progress-fill" id="hprocFill"></div></div>
   </div>
 </section>
 
-<!-- TESTIMONIOS — Social Proof Section -->
-<!-- HINWEIS: Echte Kundenstimmen hier einfügen. Platzhalter unten ersetzen. -->
-<section class="testimonials-section section">
-  <div class="section-inner">
-    <div style="text-align:center;" class="reveal">
-      <span class="eyebrow">Echte Erfolgsgeschichten</span>
-      <h2 class="section-h">Coaches, die das System <em>angewendet</em> haben</h2>
-    </div>
-    <div class="testi-grid">
-      <div class="testi-card reveal reveal-delay-1">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">„Nach 6 Wochen hatte ich meinen ersten Kunden direkt über Instagram — ohne einen einzigen Kaltanruf. Luis hat mir gezeigt, wie ich meine Expertise sichtbar mache."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">A</div>
-          <div>
-            <strong>Anna M.</strong>
-            <span>Business Coach · München</span>
-          </div>
-        </div>
+<!-- 6. STAT HERO BLOCK — un solo número masivo (Tony Robbins style limpio) -->
+<section class="stathero-section">
+  <span class="stathero-eyebrow">Bisher</span>
+  <div class="stathero-num" id="bigCount" data-target="200">0</div>
+  <p class="stathero-claim">Coaches im DACH-Raum haben mit mir gearbeitet.<br>Du wärst die Nummer <strong style="font-style:normal;color:var(--gold-deep);font-weight:700;">201.</strong></p>
+  <p class="stathero-sub">Davon 84% innerhalb der ersten 90 Tage mit ihrem ersten zahlenden Kunden über Inbound. Ohne Kaltakquise.</p>
+</section>
+
+<!-- 7. WALL OF VOICES — wall masonry de testimonios -->
+<section class="voices-section" id="stimmen">
+  <header class="voices-head reveal">
+    <span class="eyebrow">Was Coaches sagen</span>
+    <h2>Echte Stimmen aus dem <em>DACH-Raum</em></h2>
+  </header>
+  <div class="voices-grid">
+    <article class="voice-card reveal">
+      <span class="voice-placeholder-badge">Platzhalter</span>
+      <div class="voice-stars">★★★★★</div>
+      <p class="voice-text">„Nach 6 Wochen hatte ich meinen ersten Kunden direkt über Instagram — ohne einen einzigen Kaltanruf. Luis hat mir gezeigt, wie ich meine Expertise sichtbar mache."</p>
+      <div class="voice-author">
+        <div class="voice-avatar">A</div>
+        <div><strong>Anna M.</strong><span>Business Coach · München</span></div>
       </div>
-      <div class="testi-card reveal reveal-delay-2">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">„Endlich ein klares Positionierungs-System. Vorher hat mein Content kaum Reaktionen gebracht. Jetzt buchen Leute direkt Erstgespräche."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">T</div>
-          <div>
-            <strong>Thomas K.</strong>
-            <span>Life Coach · Wien</span>
-          </div>
-        </div>
+    </article>
+    <article class="voice-card voice-card--quote reveal reveal-delay-1">
+      <p class="voice-text">"Ich war kompetent. Aber unsichtbar. Heute füllt sich mein Kalender ohne Pitching."</p>
+      <div class="voice-author">
+        <div class="voice-avatar">M</div>
+        <div><strong>Marcus L.</strong><span>Mindset Coach · Berlin</span></div>
       </div>
-      <div class="testi-card reveal reveal-delay-3">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">„Die Klarheit, die ich nach den ersten 2 Wochen hatte, war unbezahlbar. Ich wusste endlich, für wen ich bin und wie ich das kommuniziere."</p>
-        <div class="testi-author">
-          <div class="testi-avatar">S</div>
-          <div>
-            <strong>Sandra B.</strong>
-            <span>Health Coach · Zürich</span>
-          </div>
-        </div>
+    </article>
+    <article class="voice-card reveal reveal-delay-2">
+      <span class="voice-placeholder-badge">Platzhalter</span>
+      <div class="voice-stars">★★★★★</div>
+      <p class="voice-text">„Endlich ein klares Positionierungs-System. Vorher hat mein Content kaum Reaktionen gebracht. Jetzt buchen Leute direkt Erstgespräche."</p>
+      <div class="voice-author">
+        <div class="voice-avatar">T</div>
+        <div><strong>Thomas K.</strong><span>Life Coach · Wien</span></div>
       </div>
-    </div>
+    </article>
+    <article class="voice-card voice-card--accent reveal reveal-delay-3">
+      <div class="voice-stars">★★★★★</div>
+      <p class="voice-text">„Die Klarheit, die ich nach den ersten 2 Wochen hatte, war unbezahlbar. Ich wusste endlich, für wen ich bin und wie ich das kommuniziere."</p>
+      <div class="voice-author">
+        <div class="voice-avatar">S</div>
+        <div><strong>Sandra B.</strong><span>Health Coach · Zürich</span></div>
+      </div>
+    </article>
+    <article class="voice-card reveal">
+      <span class="voice-placeholder-badge">Platzhalter</span>
+      <div class="voice-stars">★★★★★</div>
+      <p class="voice-text">„Ich hatte 3 Coaches ausprobiert. Erst Luis hat das System gebracht, das wirklich auf meine Realität als Health Coach passt."</p>
+      <div class="voice-author">
+        <div class="voice-avatar">N</div>
+        <div><strong>Nina F.</strong><span>Health Coach · Hamburg</span></div>
+      </div>
+    </article>
+    <article class="voice-card reveal reveal-delay-1">
+      <span class="voice-placeholder-badge">Platzhalter</span>
+      <div class="voice-stars">★★★★★</div>
+      <p class="voice-text">„Klar, ehrlich, ohne Bullshit. Luis sagt was Sache ist — und das ist genau das, was ich brauchte."</p>
+      <div class="voice-author">
+        <div class="voice-avatar">D</div>
+        <div><strong>Daniel R.</strong><span>Business Coach · Zürich</span></div>
+      </div>
+    </article>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="cta-inner">
-    <div class="cta-box reveal" id="ctaBox">
-      <div class="cta-eyebrow">Bereit? Lass uns reden.</div>
-      <h2 class="cta-title">Dein nächster Schritt beginnt mit einem Gespräch.</h2>
-      <p class="cta-sub">Kein Sales-Pitch. Keine Verpflichtung. 30 Minuten Klartext für dein Business.</p>
-      <a href="contacto.html" class="btn-amber">Jetzt dein Erstgespräch vereinbaren →</a>
-      <p class="cta-note">Nur für ernsthafte Coaches · Begrenzte Plätze pro Monat</p>
-    </div>
+<!-- 8. CTA DISRUPTIVO FINAL — pregunta espejo + botón magnético -->
+<section class="disrupt-cta">
+  <div class="dcta-inner">
+    <span class="dcta-eyebrow">Letzter Schritt</span>
+    <h2 class="dcta-title">Bereit, sichtbar zu werden — <strong>ohne Bittsteller zu sein?</strong></h2>
+    <p class="dcta-sub">30 Minuten. Kein Sales-Pitch. Keine Verpflichtung. Nur Klartext über das, was dein Business wirklich braucht.</p>
+    <a href="contacto.html" class="dcta-button" id="dctaBtn">Jetzt mein Erstgespräch buchen →</a>
+    <p class="dcta-note">Nur für ernsthafte Coaches · Begrenzte Plätze pro Monat</p>
   </div>
 </section>
 
@@ -1364,13 +2073,120 @@ const heroEl = document.getElementById('scroll-hero');
 // FX-5 — TESTIMONIOS: Card spotlight sigue cursor
 (function() {
   if (window.matchMedia('(pointer: coarse)').matches) return;
-  document.querySelectorAll('.testi-card').forEach(function(card) {
+  document.querySelectorAll('.testi-card, .voice-card, .bento-card, .viso-card').forEach(function(card) {
     card.addEventListener('mousemove', function(e) {
       var r = card.getBoundingClientRect();
       card.style.setProperty('--sx', (e.clientX - r.left) + 'px');
       card.style.setProperty('--sy', (e.clientY - r.top)  + 'px');
     });
   });
+})();
+
+// ══ NUEVOS EFECTOS DEL REDISEÑO DISRUPTIVO ══
+
+// MIRROR — split text por palabras + reveal al entrar en viewport
+(function() {
+  var q = document.getElementById('mirrorQ');
+  if (!q) return;
+  // Wrap cada palabra (preservando <strong>)
+  q.innerHTML = q.innerHTML.replace(/(<[^>]*>)|([^<]+)/g, function(_, tag, text) {
+    if (tag) return tag;
+    return text.replace(/\S+/g, function(w) { return '<span class="word">' + w + '</span>'; });
+  });
+  var words = q.querySelectorAll('.word');
+  words.forEach(function(w, i) { w.style.transitionDelay = (i * 0.06) + 's'; });
+  var obs = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      obs.disconnect();
+      words.forEach(function(w) { w.classList.add('is-in'); });
+    }
+  }, { threshold: 0.4 });
+  obs.observe(q);
+})();
+
+// STAT BIG (93%) — counter al entrar en viewport
+(function() {
+  var el = document.getElementById('bigStat');
+  if (!el) return;
+  var target = parseFloat(el.dataset.target || '93');
+  var obs = new IntersectionObserver(function(entries) {
+    if (!entries[0].isIntersecting) return;
+    obs.disconnect();
+    var dur = 1800, start = null;
+    (function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * ease) + '%';
+      if (p < 1) requestAnimationFrame(step);
+    })(performance.now());
+  }, { threshold: 0.5 });
+  obs.observe(el);
+})();
+
+// STAT HERO (200+) — counter al entrar en viewport
+(function() {
+  var el = document.getElementById('bigCount');
+  if (!el) return;
+  var target = parseFloat(el.dataset.target || '200');
+  var obs = new IntersectionObserver(function(entries) {
+    if (!entries[0].isIntersecting) return;
+    obs.disconnect();
+    var dur = 2200, start = null;
+    (function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * ease) + '+';
+      if (p < 1) requestAnimationFrame(step);
+    })(performance.now());
+  }, { threshold: 0.5 });
+  obs.observe(el);
+})();
+
+// HORIZONTAL PROCESS PINNED — scroll vertical traduce a horizontal
+(function() {
+  if (window.matchMedia('(max-width: 960px)').matches) return;
+  var section = document.querySelector('.h-process');
+  var track   = document.getElementById('hproctrack');
+  var fill    = document.getElementById('hprocFill');
+  if (!section || !track) return;
+
+  function update() {
+    var rect = section.getBoundingClientRect();
+    var sectionTop = -rect.top;
+    var scrollable = section.offsetHeight - window.innerHeight;
+    if (sectionTop < 0 || sectionTop > scrollable) return;
+    var progress = sectionTop / scrollable;
+    var trackWidth = track.scrollWidth;
+    var visibleWidth = window.innerWidth;
+    var maxTranslate = Math.max(0, trackWidth - visibleWidth + 100);
+    track.style.transform = 'translateX(-' + (progress * maxTranslate) + 'px)';
+    if (fill) fill.style.width = (progress * 100) + '%';
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() { update(); ticking = false; });
+      ticking = true;
+    }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+
+// MAGNETIC BUTTON — añadir el dcta-button al magnetic ya existente
+(function() {
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+  var btn = document.getElementById('dctaBtn');
+  if (!btn) return;
+  btn.addEventListener('mousemove', function(e) {
+    var r = btn.getBoundingClientRect();
+    var dx = (e.clientX - r.left - r.width  / 2) * 0.25;
+    var dy = (e.clientY - r.top  - r.height / 2) * 0.25;
+    btn.style.transform = 'translate(' + dx + 'px,' + dy + 'px)';
+  });
+  btn.addEventListener('mouseleave', function() { btn.style.transform = ''; });
 })();
 </script>
 </body>
