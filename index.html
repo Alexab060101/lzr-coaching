@@ -469,13 +469,13 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
     height: 100vh !important;
     align-items: stretch !important;
   }
-  /* HERO content — badge arriba (sobre cabeza Luis), título al pecho */
+  /* HERO content — badge top (sobre cabeza), título+CTA bajo cuerpo (zona libre) */
   .hero-content {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
-    padding: 70px 18px 0 !important;
+    padding: 70px 18px 90px !important;
     height: 100vh !important;
     width: 100% !important;
   }
@@ -485,17 +485,17 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
     padding: 6px 14px !important;
   }
   .hero-title {
-    margin-top: 18vh !important;
-    font-size: 2.4rem !important;
-    line-height: 1.02 !important;
+    margin-top: auto !important;
+    font-size: 1.95rem !important;
+    line-height: 1.05 !important;
   }
   .hero-sub {
     display: none !important;
   }
   .hero-actions {
-    margin-top: 22px !important;
+    margin-top: 16px !important;
     width: 100% !important;
-    max-width: 320px !important;
+    max-width: 300px !important;
     flex-direction: column !important;
     gap: 10px !important;
   }
@@ -551,39 +551,35 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
     line-height: 1.2;
   }
 
-  /* PROBLEM — ocultar 4ª card + 2º párrafo intro */
+  /* PROBLEM — solo h2 + cards visuales (icono + título); descripciones ocultas */
   .problem-section .pcard:nth-child(4) { display: none; }
   .problem-intro p:nth-of-type(2) { display: none; }
-  .problem-intro p { font-size: 0.9rem; }
-  .pcard { padding: 18px 20px; }
-  .pcard h3 { font-size: 0.85rem; }
-  .pcard p { font-size: 0.78rem; line-height: 1.55; }
+  .problem-intro p { font-size: 0.92rem; line-height: 1.55; }
+  .pcard { padding: 20px 20px; }
+  .pcard-icon { font-size: 2rem; }
+  .pcard h3 { font-size: 0.9rem; }
+  .pcard p { display: none; }  /* solo iconazo + título, máxima visualidad */
 
   /* QUOTE — más compacta */
   .quote-section { padding: 60px 24px; }
   .quote-mark { font-size: 5.5rem; margin-bottom: 8px; }
 
-  /* PROCESS — más respirado */
-  .process-section .desc { font-size: 0.88rem; }
-  .step { padding: 32px 24px; }
-  .step-num { font-size: 3.5rem; margin-bottom: 8px; }
-  .step h3 { font-size: 0.95rem; }
-  .step p { font-size: 0.8rem; }
+  /* PROCESS — números enormes, descripción corta */
+  .process-section .desc { display: none; }  /* h2 solo, descripción intro fuera */
+  .step { padding: 28px 22px; }
+  .step-num { font-size: 4.5rem; margin-bottom: 4px; }
+  .step h3 { font-size: 0.95rem; margin-bottom: 8px; }
+  .step p { font-size: 0.8rem; line-height: 1.5; }
+  .step-tag { display: none; }  /* fuera tag redundante */
 
-  /* WHOM — ocultar últimos 2 items + descripción larga acortada */
+  /* WHOM — items minimal, stat grande, sin párrafo prosa */
   .whom-list .whom-item:nth-child(n+5) { display: none; }
-  .whom-item { font-size: 0.88rem; padding: 14px 0; }
+  .whom-item { font-size: 0.86rem; padding: 12px 0; line-height: 1.4; }
   .whom-visual { padding: 32px 22px; }
-  .whom-visual .stat-body {
-    font-size: 0.82rem;
-    line-height: 1.6;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
+  .whom-visual .stat-body { display: none; }  /* fuera prosa, big-stat habla solo */
   .whom-visual .mini-item:nth-child(n+3) { display: none; }
-  .big-stat { font-size: 3.5rem; }
+  .whom-visual hr { display: none; }
+  .big-stat { font-size: 4rem; }
 
   /* TESTIMONIALS — solo 2 cards, evita scroll infinito */
   .testi-grid .testi-card:nth-child(3) { display: none; }
@@ -621,9 +617,10 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
 
 /* HERO mobile pequeño — refinamiento final */
 @media (max-width: 480px) {
-  .hero-title { font-size: 2rem !important; line-height: 1.05 !important; margin-top: 16vh !important; }
-  .hero-content { padding-top: 64px !important; }
+  .hero-title { font-size: 1.7rem !important; line-height: 1.05 !important; margin-top: auto !important; }
+  .hero-content { padding-top: 60px !important; padding-bottom: 76px !important; }
   .hero-badge { font-size: 0.54rem !important; padding: 5px 12px !important; }
+  .btn-primary { padding: 14px 24px !important; font-size: 0.78rem !important; }
   .ms-num { font-size: 1.2rem; }
   .ms-label { font-size: 0.5rem; }
   .cta-title { font-size: 1.55rem; }
