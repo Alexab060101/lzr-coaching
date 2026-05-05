@@ -335,12 +335,12 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
 .reveal-delay-2 { transition-delay:0.2s; }
 .reveal-delay-3 { transition-delay:0.3s; }
 
-/* Tarjetas problema — entrada alternada izquierda/derecha */
+/* Tarjetas problema. entrada alternada izquierda/derecha */
 .pcard:nth-child(odd).reveal  { transform: translateX(-38px); }
 .pcard:nth-child(even).reveal { transform: translateX(38px); }
 .pcard.reveal.up { transform: translateX(0) !important; }
 
-/* Pasos del proceso — entrada en abanico */
+/* Pasos del proceso. entrada en abanico */
 .step:nth-child(1).reveal { transform: translateY(36px) translateX(-18px) rotate(-1.5deg); }
 .step:nth-child(2).reveal { transform: translateY(44px); }
 .step:nth-child(3).reveal { transform: translateY(36px) translateX(18px) rotate(1.5deg); }
@@ -365,7 +365,7 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
 .steps-grid.line-on::before { transform: scaleX(1); opacity: 0.7; }
 @media (max-width: 960px) { .steps-grid::before { display: none; } }
 
-/* Quote — palabras */
+/* Quote. palabras */
 .q-word {
   display: inline-block;
   opacity: 0;
@@ -374,7 +374,7 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
 }
 .quote-inner.q-on .q-word { opacity: 1; transform: translateY(0); }
 
-/* Whom list — stagger */
+/* Whom list. stagger */
 .whom-item:nth-child(1).reveal { transition-delay: 0.04s; }
 .whom-item:nth-child(2).reveal { transition-delay: 0.10s; }
 .whom-item:nth-child(3).reveal { transition-delay: 0.16s; }
@@ -382,7 +382,7 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
 .whom-item:nth-child(5).reveal { transition-delay: 0.28s; }
 .whom-item:nth-child(6).reveal { transition-delay: 0.34s; }
 
-/* CTA — pulso de luz suave */
+/* CTA. pulso de luz suave */
 @keyframes ctaPulse {
   0%,100% { box-shadow: 0 40px 90px rgba(26,44,80,0.3); }
   50%      { box-shadow: 0 40px 90px rgba(26,44,80,0.3), 0 0 90px rgba(201,162,84,0.16); }
@@ -405,18 +405,18 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
 }
 
 @media (max-width: 768px) {
-  /* Hero — sin zona sticky extra en móvil */
+  /* Hero. sin zona sticky extra en móvil */
   .scroll-video-hero { height: 100vh; }
   .scroll-video-sticky { position: relative; }
 
-  /* Hero content — menos padding-bottom para que el texto sea visible */
+  /* Hero content. menos padding-bottom para que el texto sea visible */
   .hero-content { padding-bottom: 110px; }
 
-  /* Hero stats — más compactos */
+  /* Hero stats. más compactos */
   .hstat-num  { font-size: 1.75rem; }
   .hero-stats { gap: 16px; bottom: 20px; }
 
-  /* Desactivar entrada izquierda/derecha en tarjetas — evita scroll horizontal */
+  /* Desactivar entrada izquierda/derecha en tarjetas. evita scroll horizontal */
   .pcard:nth-child(odd).reveal,
   .pcard:nth-child(even).reveal { transform: translateY(28px) !important; }
 
@@ -435,7 +435,7 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
   /* Secciones con menos aire */
   .section { padding: 60px 20px; }
 
-  /* Grain — desactivar en móvil (evita problemas Safari iOS) */
+  /* Grain. desactivar en móvil (evita problemas Safari iOS) */
   body::before { display: none; }
 }
 
@@ -455,15 +455,15 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
 }
 
 /* ══════════════════════════════════════════
-   MOBILE PRIORITY OPTIMIZATIONS — solo móvil
+   MOBILE PRIORITY OPTIMIZATIONS. solo móvil
    "Menos es más" · No afecta a desktop
    ══════════════════════════════════════════ */
 
-/* Mini stats bar — visible solo en móvil, oculta en desktop */
+/* Mini stats bar. visible solo en móvil, oculta en desktop */
 .mobile-stats-bar { display: none; }
 
 @media (max-width: 768px) {
-  /* HERO — sticky un poco para que el cliente vea el vídeo activarse al scrollear */
+  /* HERO. sticky un poco para que el cliente vea el vídeo activarse al scrollear */
   .scroll-video-hero {
     height: 180vh !important;
   }
@@ -473,7 +473,7 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
     height: 100vh !important;
     align-items: stretch !important;
   }
-  /* HERO content — badge top, título+CTA al ~50% (mitad entre pecho y base) */
+  /* HERO content. badge top, título+CTA al ~50% (mitad entre pecho y base) */
   .hero-content {
     display: flex !important;
     flex-direction: column !important;
@@ -526,7 +526,7 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
     ) !important;
   }
 
-  /* Mini stats bar — compacta, después del hero */
+  /* Mini stats bar. compacta, después del hero */
   .mobile-stats-bar {
     display: flex;
     justify-content: space-around;
@@ -555,7 +555,7 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
     line-height: 1.2;
   }
 
-  /* PROBLEM — solo h2 + cards visuales (icono + título); descripciones ocultas */
+  /* PROBLEM. solo h2 + cards visuales (icono + título); descripciones ocultas */
   .problem-section .pcard:nth-child(4) { display: none; }
   .problem-intro p:nth-of-type(2) { display: none; }
   .problem-intro p { font-size: 0.92rem; line-height: 1.55; }
@@ -564,11 +564,11 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
   .pcard h3 { font-size: 0.9rem; }
   .pcard p { display: none; }  /* solo iconazo + título, máxima visualidad */
 
-  /* QUOTE — más compacta */
+  /* QUOTE. más compacta */
   .quote-section { padding: 60px 24px; }
   .quote-mark { font-size: 5.5rem; margin-bottom: 8px; }
 
-  /* PROCESS — números enormes, descripción corta */
+  /* PROCESS. números enormes, descripción corta */
   .process-section .desc { display: none; }  /* h2 solo, descripción intro fuera */
   .step { padding: 28px 22px; }
   .step-num { font-size: 4.5rem; margin-bottom: 4px; }
@@ -576,7 +576,7 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
   .step p { font-size: 0.8rem; line-height: 1.5; }
   .step-tag { display: none; }  /* fuera tag redundante */
 
-  /* WHOM — items minimal, stat grande, sin párrafo prosa */
+  /* WHOM. items minimal, stat grande, sin párrafo prosa */
   .whom-list .whom-item:nth-child(n+5) { display: none; }
   .whom-item { font-size: 0.86rem; padding: 12px 0; line-height: 1.4; }
   .whom-visual { padding: 32px 22px; }
@@ -585,12 +585,12 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
   .whom-visual hr { display: none; }
   .big-stat { font-size: 4rem; }
 
-  /* TESTIMONIALS — solo 2 cards, evita scroll infinito */
+  /* TESTIMONIALS. solo 2 cards, evita scroll infinito */
   .testi-grid .testi-card:nth-child(3) { display: none; }
   .testi-card { padding: 28px 24px; }
   .testi-text { font-size: 0.85rem; line-height: 1.65; margin-bottom: 18px; }
 
-  /* CTA — punchier en móvil */
+  /* CTA. punchier en móvil */
   .cta-section { padding: 72px 20px; }
   .cta-box { padding: 48px 24px; }
   .cta-eyebrow { font-size: 0.6rem; }
@@ -598,7 +598,7 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
   .cta-sub { font-size: 0.85rem; line-height: 1.65; margin-bottom: 28px; }
   .btn-amber { padding: 16px 36px; font-size: 0.86rem; width: 100%; }
 
-  /* Separadores dorados entre secciones — guían el ojo */
+  /* Separadores dorados entre secciones. guían el ojo */
   .quote-section::before,
   .process-section::before,
   .whom-section::before,
@@ -619,7 +619,7 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
   }
 }
 
-/* HERO mobile pequeño — refinamiento final */
+/* HERO mobile pequeño. refinamiento final */
 @media (max-width: 480px) {
   .hero-title { font-size: 1.7rem !important; line-height: 1.05 !important; margin-top: auto !important; }
   .hero-content { padding-top: 13vh !important; padding-bottom: 28vh !important; }
@@ -665,7 +665,7 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
 
 /* ══ PREMIUM EFFECTS ══ */
 
-/* Cursor personalizado — solo desktop */
+/* Cursor personalizado. solo desktop */
 @media (pointer: fine) {
   *, *::before, *::after { cursor: none !important; }
 }
@@ -727,10 +727,10 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
 }
 @keyframes shimmer { to { background-position: -250% center; } }
 
-/* Tilt 3D cards — transición suave al salir */
+/* Tilt 3D cards. transición suave al salir */
 .step, .pcard { transition: transform 0.18s ease, box-shadow 0.35s; }
 
-/* Botones magnéticos — transición suave */
+/* Botones magnéticos. transición suave */
 .btn-primary, .btn-amber, .nav-cta { will-change: transform; }
 
 /* ── FILM GRAIN ── */
@@ -761,7 +761,7 @@ body::before {
 
 
 /* ════════════════════════════════════════════════
-   NUEVO BLOQUE — REDISEÑO DISRUPTIVO POST-HERO
+   NUEVO BLOQUE. REDISEÑO DISRUPTIVO POST-HERO
    Mantiene paleta navy/gold/beige · suma Anton + asimetría
    ════════════════════════════════════════════════ */
 
@@ -1481,7 +1481,7 @@ body::before {
         <em>Sichtbar.</em>
         <span class="outlined">Gebucht.</span>
       </h1>
-      <p class="hero-sub">Ich helfe Coaches, ohne Kaltakquise eine glasklare Positionierung und einen Kundenstrom aufzubauen — durch Content, der wirklich konvertiert.</p>
+      <p class="hero-sub">Ich helfe Coaches, ohne Kaltakquise eine glasklare Positionierung und einen Kundenstrom aufzubauen. durch Content, der wirklich konvertiert.</p>
       <div class="hero-actions">
         <a href="contacto.html" class="btn-primary">Mein kostenloses Erstgespräch buchen</a>
         <a href="servicios.html" class="btn-ghost">Das System verstehen</a>
@@ -1512,7 +1512,7 @@ body::before {
   </div>
 </section>
 
-<!-- MOBILE STATS BAR — barra compacta solo visible en móvil -->
+<!-- MOBILE STATS BAR. barra compacta solo visible en móvil -->
 <div class="mobile-stats-bar" aria-label="Resultados de LZR Coaching">
   <div class="ms-item"><div class="ms-num">200+</div><div class="ms-label">Coaches</div></div>
   <div class="ms-item"><div class="ms-num">2K+</div><div class="ms-label">DACH</div></div>
@@ -1523,16 +1523,16 @@ body::before {
      REDISEÑO DISRUPTIVO POST-HERO · 7 secciones
      ═══════════════════════════════════════════════ -->
 
-<!-- 1. MIRROR QUESTION — pregunta espejo gigante -->
+<!-- 1. MIRROR QUESTION. pregunta espejo gigante -->
 <section class="mirror-section" id="problem">
   <span class="mirror-eyebrow">Sei ehrlich.</span>
   <h2 class="mirror-question" id="mirrorQ">
-    Du kannst coachen — aber <strong>wer weiß das?</strong>
+    Du kannst coachen. aber <strong>wer weiß das?</strong>
   </h2>
-  <p class="mirror-sub">Echte Kompetenz reicht nicht. Was fehlt: ein System, das dich sichtbar macht — ohne zu betteln, ohne Kaltakquise.</p>
+  <p class="mirror-sub">Echte Kompetenz reicht nicht. Was fehlt: ein System, das dich sichtbar macht. ohne zu betteln, ohne Kaltakquise.</p>
 </section>
 
-<!-- 3. METHOD V.I.S.O. — 4 pilares + foto Luis -->
+<!-- 3. METHOD V.I.S.O.. 4 pilares + foto Luis -->
 <section class="viso-section" id="prozess">
   <header class="viso-head">
     <div class="reveal">
@@ -1568,7 +1568,7 @@ body::before {
   </div>
 </section>
 
-<!-- 5. PROCESS HORIZONTAL PINNED — efecto cinemático tipo Apple -->
+<!-- 5. PROCESS HORIZONTAL PINNED. efecto cinemático tipo Apple -->
 <section class="h-process" id="weg">
   <div class="h-process__sticky">
     <div class="h-process__head reveal">
@@ -1579,19 +1579,19 @@ body::before {
       <article class="h-step">
         <span class="h-step__tag">Schritt 01 · Fundament</span>
         <h3 class="h-step__title">Positionierung <em>schärfen</em></h3>
-        <p class="h-step__body">Wir definieren präzise: Für wen du bist, welches Problem du löst und warum ausgerechnet du. Kein "für alle Coaches" — eine Botschaft, in der sich genau dein Idealkunde wiedererkennt.</p>
+        <p class="h-step__body">Wir definieren präzise: Für wen du bist, welches Problem du löst und warum ausgerechnet du. Kein "für alle Coaches". eine Botschaft, in der sich genau dein Idealkunde wiedererkennt.</p>
         <span class="h-step__num">01</span>
       </article>
       <article class="h-step h-step--accent">
         <span class="h-step__tag">Schritt 02 · Sichtbarkeit</span>
         <h3 class="h-step__title">Content der <em>konvertiert</em></h3>
-        <p class="h-step__body">Jeder Post mit Funktion. Du lernst, Inhalte zu erstellen, die nicht Likes — sondern Gespräche und Anfragen — erzeugen. Reproduzierbar, ohne 8 Stunden pro Woche zu posten.</p>
+        <p class="h-step__body">Jeder Post mit Funktion. Du lernst, Inhalte zu erstellen, die nicht Likes. sondern Gespräche und Anfragen. erzeugen. Reproduzierbar, ohne 8 Stunden pro Woche zu posten.</p>
         <span class="h-step__num">02</span>
       </article>
       <article class="h-step">
         <span class="h-step__tag">Schritt 03 · Umsatz</span>
         <h3 class="h-step__title">Kunden-Prozess <em>aufbauen</em></h3>
-        <p class="h-step__body">Vom ersten DM bis zur Buchung — ein natürlicher Weg. Kein aggressives Verkaufen. Ein Prozess, der sich richtig anfühlt — für dich und deine Kunden.</p>
+        <p class="h-step__body">Vom ersten DM bis zur Buchung. ein natürlicher Weg. Kein aggressives Verkaufen. Ein Prozess, der sich richtig anfühlt. für dich und deine Kunden.</p>
         <span class="h-step__num">03</span>
       </article>
     </div>
@@ -1599,7 +1599,7 @@ body::before {
   </div>
 </section>
 
-<!-- 6. STAT HERO BLOCK — un solo número masivo (Tony Robbins style limpio) -->
+<!-- 6. STAT HERO BLOCK. un solo número masivo (Tony Robbins style limpio) -->
 <section class="stathero-section">
   <span class="stathero-eyebrow">Bisher</span>
   <div class="stathero-num" id="bigCount" data-target="200">0</div>
@@ -1607,11 +1607,11 @@ body::before {
   <p class="stathero-sub">Davon 84% innerhalb der ersten 90 Tage mit ihrem ersten zahlenden Kunden über Inbound. Ohne Kaltakquise.</p>
 </section>
 
-<!-- 6. CTA DISRUPTIVO FINAL — pregunta espejo + botón magnético -->
+<!-- 6. CTA DISRUPTIVO FINAL. pregunta espejo + botón magnético -->
 <section class="disrupt-cta">
   <div class="dcta-inner">
     <span class="dcta-eyebrow">Letzter Schritt</span>
-    <h2 class="dcta-title">Bereit, sichtbar zu werden — <strong>ohne Bittsteller zu sein?</strong></h2>
+    <h2 class="dcta-title">Bereit, sichtbar zu werden. <strong>ohne Bittsteller zu sein?</strong></h2>
     <p class="dcta-sub">30 Minuten. Kein Sales-Pitch. Keine Verpflichtung. Nur Klartext über das, was dein Business wirklich braucht.</p>
     <a href="contacto.html" class="dcta-button" id="dctaBtn">Jetzt mein Erstgespräch buchen →</a>
     <p class="dcta-note">Nur für ernsthafte Coaches · Begrenzte Plätze pro Monat</p>
@@ -1659,7 +1659,7 @@ const heroEl = document.getElementById('scroll-hero');
 
 /* ══ PREMIUM EFFECTS JS ══ */
 
-// 1 — CURSOR PERSONALIZADO
+// 1. CURSOR PERSONALIZADO
 (function() {
   if (window.matchMedia('(pointer: coarse)').matches) return;
   var dot  = document.createElement('div'); dot.className = 'c-dot';
@@ -1682,7 +1682,7 @@ const heroEl = document.getElementById('scroll-hero');
   document.addEventListener('mouseleave', function() { dot.style.opacity='0'; ring.style.opacity='0'; });
   document.addEventListener('mouseenter', function() { dot.style.opacity='1'; ring.style.opacity='0.7'; });
 
-  // Click ripple — crea el elemento, lo destruye solo al terminar la animación
+  // Click ripple. crea el elemento, lo destruye solo al terminar la animación
   document.addEventListener('click', function(e) {
     var r = document.createElement('div');
     r.className = 'c-ripple';
@@ -1693,7 +1693,7 @@ const heroEl = document.getElementById('scroll-hero');
   });
 })();
 
-// 2 — BARRA DE LECTURA
+// 2. BARRA DE LECTURA
 (function() {
   var bar = document.createElement('div'); bar.id = 'read-bar';
   document.body.appendChild(bar);
@@ -1703,7 +1703,7 @@ const heroEl = document.getElementById('scroll-hero');
   }, { passive: true });
 })();
 
-// 3 — CONTADORES ANIMADOS (hero stats)
+// 3. CONTADORES ANIMADOS (hero stats)
 // Esperan a que el fadeUp del contenedor termine antes de contar
 (function() {
   function animateCount(el) {
@@ -1767,7 +1767,7 @@ const heroEl = document.getElementById('scroll-hero');
   });
 })();
 
-// 4 — BOTONES MAGNÉTICOS
+// 4. BOTONES MAGNÉTICOS
 (function() {
   if (window.matchMedia('(pointer: coarse)').matches) return;
   document.querySelectorAll('.btn-primary, .btn-amber, .nav-cta').forEach(function(btn) {
@@ -1781,7 +1781,7 @@ const heroEl = document.getElementById('scroll-hero');
   });
 })();
 
-// 5b — CARD SPOTLIGHT (Vercel-style): el halo sigue al cursor dentro de la tarjeta
+// 5b. CARD SPOTLIGHT (Vercel-style): el halo sigue al cursor dentro de la tarjeta
 (function() {
   if (window.matchMedia('(pointer: coarse)').matches) return;
   document.querySelectorAll('.step, .pcard').forEach(function(card) {
@@ -1868,7 +1868,7 @@ const heroEl = document.getElementById('scroll-hero');
   obs.observe(grid);
 })();
 
-// Quote — reveal palabra a palabra
+// Quote. reveal palabra a palabra
 (function() {
   var qtext  = document.querySelector('.quote-text');
   var qinner = document.querySelector('.quote-inner');
@@ -1912,7 +1912,7 @@ const heroEl = document.getElementById('scroll-hero');
 
 // ══ NUEVOS EFECTOS VISUALES (FX Agent) ══
 
-// FX-1 — FLOATING ELEMENTS (hero badge + quote glows respiran)
+// FX-1. FLOATING ELEMENTS (hero badge + quote glows respiran)
 (function() {
   var style = document.createElement('style');
   style.textContent = [
@@ -1924,7 +1924,7 @@ const heroEl = document.getElementById('scroll-hero');
   document.head.appendChild(style);
 })();
 
-// FX-2 — GRADIENT SHIFT ANIMADO en hero background
+// FX-2. GRADIENT SHIFT ANIMADO en hero background
 (function() {
   var style = document.createElement('style');
   style.textContent = [
@@ -1934,7 +1934,7 @@ const heroEl = document.getElementById('scroll-hero');
   document.head.appendChild(style);
 })();
 
-// FX-3 — DYNAMIC GLOW en CTA box al hacer scroll hacia él
+// FX-3. DYNAMIC GLOW en CTA box al hacer scroll hacia él
 (function() {
   var ctaBox = document.getElementById('ctaBox');
   if (!ctaBox) return;
@@ -1949,7 +1949,7 @@ const heroEl = document.getElementById('scroll-hero');
   obs.observe(ctaBox);
 })();
 
-// FX-4 — STAGGERED 3D ENTRANCE para testimonios
+// FX-4. STAGGERED 3D ENTRANCE para testimonios
 (function() {
   var style = document.createElement('style');
   style.textContent = [
@@ -1959,7 +1959,7 @@ const heroEl = document.getElementById('scroll-hero');
   document.head.appendChild(style);
 })();
 
-// FX-5 — TESTIMONIOS: Card spotlight sigue cursor
+// FX-5. TESTIMONIOS: Card spotlight sigue cursor
 (function() {
   if (window.matchMedia('(pointer: coarse)').matches) return;
   document.querySelectorAll('.testi-card, .voice-card, .bento-card, .viso-card').forEach(function(card) {
@@ -1973,7 +1973,7 @@ const heroEl = document.getElementById('scroll-hero');
 
 // ══ NUEVOS EFECTOS DEL REDISEÑO DISRUPTIVO ══
 
-// MIRROR — split text por palabras + reveal al entrar en viewport
+// MIRROR. split text por palabras + reveal al entrar en viewport
 (function() {
   var q = document.getElementById('mirrorQ');
   if (!q) return;
@@ -1993,7 +1993,7 @@ const heroEl = document.getElementById('scroll-hero');
   obs.observe(q);
 })();
 
-// STAT BIG (93%) — counter al entrar en viewport
+// STAT BIG (93%). counter al entrar en viewport
 (function() {
   var el = document.getElementById('bigStat');
   if (!el) return;
@@ -2013,7 +2013,7 @@ const heroEl = document.getElementById('scroll-hero');
   obs.observe(el);
 })();
 
-// STAT HERO (200+) — counter al entrar en viewport
+// STAT HERO (200+). counter al entrar en viewport
 (function() {
   var el = document.getElementById('bigCount');
   if (!el) return;
@@ -2033,7 +2033,7 @@ const heroEl = document.getElementById('scroll-hero');
   obs.observe(el);
 })();
 
-// HORIZONTAL PROCESS PINNED — scroll vertical traduce a horizontal
+// HORIZONTAL PROCESS PINNED. scroll vertical traduce a horizontal
 (function() {
   if (window.matchMedia('(max-width: 960px)').matches) return;
   var section = document.querySelector('.h-process');
@@ -2064,7 +2064,7 @@ const heroEl = document.getElementById('scroll-hero');
   update();
 })();
 
-// MAGNETIC BUTTON — añadir el dcta-button al magnetic ya existente
+// MAGNETIC BUTTON. añadir el dcta-button al magnetic ya existente
 (function() {
   if (window.matchMedia('(pointer: coarse)').matches) return;
   var btn = document.getElementById('dctaBtn');
