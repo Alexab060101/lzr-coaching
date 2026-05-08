@@ -3,22 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="view-transition" content="same-origin" />
+<link rel="stylesheet" href="assets/shared.css" />
+<link rel="stylesheet" href="assets/cookie-banner.css" />
 <title>Leistungen für Coaches – Positionierung, Content &amp; Kunden | LZR Coaching</title>
 <meta name="description" content="Positionierung schärfen, Content der konvertiert, Kunden-Prozess aufbauen. Drei Leistungen für Coaches im DACH-Markt – klar, messbar, ohne Kaltakquise." />
 <meta name="robots" content="index, follow" />
 <meta name="author" content="Luis Zabala Rodriguez" />
-<link rel="canonical" href="servicios.html" />
+<link rel="canonical" href="https://www.zrl-coaching.com/servicios.html" />
 <meta property="og:title" content="Leistungen für Coaches – Positionierung, Content &amp; Kunden | LZR Coaching" />
 <meta property="og:description" content="Positionierung schärfen, Content der konvertiert, Kunden-Prozess aufbauen. Coaching-Leistungen für den DACH-Markt von Luis Zabala Rodriguez." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="servicios.html" />
-<meta property="og:image" content="assets/hero-poster.jpg" />
+<meta property="og:url" content="https://www.zrl-coaching.com/servicios.html" />
+<meta property="og:image" content="https://www.zrl-coaching.com/assets/hero-poster.jpg" />
 <meta property="og:locale" content="de_DE" />
 <meta property="og:site_name" content="LZR Coaching" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Leistungen für Coaches – LZR Coaching" />
 <meta name="twitter:description" content="Positionierung, Content-Strategie und Kunden-Aufbau für Coaches im DACH-Markt. Drei klare Leistungen, ein Ziel." />
-<meta name="twitter:image" content="assets/hero-poster.jpg" />
+<meta name="twitter:image" content="https://www.zrl-coaching.com/assets/hero-poster.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <script type="application/ld+json">
@@ -33,48 +36,7 @@
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --beige:       #EFE4C8;
-  --beige-light: #F7F0DC;
-  --gold:        #C9A254;
-  --gold-light:  #E4BF7A;
-  --gold-deep:   #A87D35;
-  --navy:        #1A2C50;
-  --navy-mid:    #263C6B;
-  --navy-soft:   #3A5080;
-  --text:        #1A2C50;
-  --text-mid:    #4A5A78;
-  --text-soft:   #8895A7;
-  --white:       #FAF5E8;
-}
-html { scroll-behavior: smooth; }
-body { background: var(--beige-light); color: var(--text); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
-
-/* HEADER */
-header { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:22px 52px; background:transparent; backdrop-filter:none; border-bottom:1px solid transparent; transition:padding 0.4s,background 0.4s,backdrop-filter 0.4s,border-color 0.4s; }
-header.scrolled { padding:14px 52px; background:rgba(247,240,220,0.92); backdrop-filter:blur(24px) saturate(160%); border-bottom:1px solid rgba(201,162,84,0.2); }
-.logo-wrap { display:flex; align-items:center; gap:12px; text-decoration:none; }
-.logo-wrap img { height:48px; width:auto; object-fit:contain; filter:brightness(0) invert(1); transition:filter 0.4s; }
-header.scrolled .logo-wrap img { filter:none; }
-.logo-text { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; color:#fff; line-height:1.1; transition:color 0.4s; }
-header.scrolled .logo-text { color:var(--navy); }
-.logo-text span { display:block; font-size:0.68rem; font-weight:400; color:rgba(255,255,255,0.7); letter-spacing:0.1em; text-transform:uppercase; font-family:'DM Sans',sans-serif; transition:color 0.4s; }
-header.scrolled .logo-text span { color:var(--gold-deep); }
-nav { display:flex; align-items:center; gap:36px; }
-nav a { font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(255,255,255,0.85); text-decoration:none; transition:color 0.25s; }
-header.scrolled nav a { color:var(--text-mid); }
-nav a:hover, nav a.active { color:var(--gold-light); }
-header.scrolled nav a:hover, header.scrolled nav a.active { color:var(--gold-deep); }
-.nav-cta { background:rgba(255,255,255,0.15) !important; color:#fff !important; padding:11px 26px; border-radius:100px; border:1.5px solid rgba(255,255,255,0.4) !important; transition:background 0.3s,color 0.3s,border-color 0.3s !important; }
-header.scrolled .nav-cta { background:var(--navy) !important; color:var(--gold-light) !important; border-color:transparent !important; }
-.nav-cta:hover { background:var(--gold) !important; color:var(--navy) !important; border-color:var(--gold) !important; }
-.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
-.hamburger span { display:block; width:24px; height:2px; background:var(--navy); border-radius:2px; }
-.mobile-menu { display:none; position:fixed; inset:0; background:var(--beige-light); z-index:190; flex-direction:column; align-items:center; justify-content:center; gap:32px; }
-.mobile-menu.open { display:flex; }
-.mobile-menu a { font-size:1.4rem; font-family:'Cormorant Garamond',serif; color:var(--navy); text-decoration:none; font-weight:600; }
-.mobile-close { position:absolute; top:24px; right:32px; font-size:2rem; cursor:pointer; color:var(--navy); background:none; border:none; }
+.logo-wrap img { height: 48px; }
 
 /* PAGE HERO */
 .page-hero {
@@ -87,13 +49,6 @@ header.scrolled .nav-cta { background:var(--navy) !important; color:var(--gold-l
 .page-hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.8rem,6vw,5.5rem); font-weight:700; color:#fff; line-height:1.05; margin-top:14px; position:relative; }
 .page-hero h1 em { font-style:italic; color:var(--gold-light); }
 .page-hero p { color:rgba(255,255,255,0.6); font-size:1.05rem; line-height:1.75; max-width:540px; margin:20px auto 0; position:relative; }
-
-/* SECTION */
-.section { padding:100px 48px; }
-.section-inner { max-width:1160px; margin:0 auto; }
-.eyebrow { display:inline-block; font-size:0.65rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:14px; }
-.section-h { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.5vw,3rem); line-height:1.15; color:var(--navy); font-weight:700; }
-.section-h em { font-style:italic; color:var(--gold-deep); }
 
 /* SERVICES CARDS */
 .services-intro { text-align:center; max-width:680px; margin:0 auto 72px; }
@@ -156,42 +111,19 @@ header.scrolled .nav-cta { background:var(--navy) !important; color:var(--gold-l
 .cta-eyebrow { font-size:0.65rem; font-weight:800; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-light); margin-bottom:18px; position:relative; }
 .cta-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,3.2rem); font-style:italic; line-height:1.18; color:#fff; margin-bottom:18px; position:relative; }
 .cta-sub { font-size:0.95rem; color:rgba(255,255,255,0.55); line-height:1.8; max-width:440px; margin:0 auto 40px; position:relative; }
-.btn-amber { background:var(--gold); color:var(--navy); padding:20px 56px; border-radius:100px; font-size:0.93rem; font-weight:700; text-decoration:none; display:inline-block; position:relative; box-shadow:0 10px 36px rgba(201,162,84,0.45); transition:background 0.3s,transform 0.3s,box-shadow 0.3s; }
-.btn-amber:hover { background:var(--gold-light); transform:translateY(-4px); box-shadow:0 18px 48px rgba(201,162,84,0.55); }
 .cta-note { margin-top:20px; font-size:0.68rem; color:rgba(255,255,255,0.28); letter-spacing:0.08em; position:relative; }
 
-/* FOOTER */
-footer { background:var(--navy); padding:40px 52px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; }
-.footer-logo { display:flex; align-items:center; gap:12px; }
-.footer-logo img { height:38px; width:auto; filter:brightness(0) invert(1); opacity:0.8; }
-.footer-logo-name { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1rem; color:rgba(255,255,255,0.8); }
-.footer-logo-name span { color:var(--gold-light); }
-.footer-links { display:flex; gap:30px; }
-.footer-links a { font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:600; color:rgba(255,255,255,0.35); text-decoration:none; transition:color 0.25s; }
-.footer-links a:hover { color:var(--gold-light); }
-.footer-copy { font-size:0.68rem; color:rgba(255,255,255,0.2); }
-
-/* REVEAL */
-.reveal { opacity:0; transform:translateY(32px); transition:opacity 0.9s ease,transform 0.9s ease; }
-.reveal.up { opacity:1; transform:translateY(0); }
-.reveal-delay-1 { transition-delay:0.1s; }
-.reveal-delay-2 { transition-delay:0.2s; }
-
-/* RESPONSIVE */
+/* RESPONSIVE específico de servicios */
 @media (max-width:960px) {
-  header { padding:14px 24px; }
-  nav { display:none; }
-  .hamburger { display:flex; }
   .service-block, .service-block.reverse { grid-template-columns:1fr; direction:ltr; }
-  .section { padding:72px 24px; }
   .page-hero { padding:120px 24px 72px; }
   .steps-row { flex-direction:column; gap:24px; }
   .strip-step:not(:last-child)::after { display:none; }
   .cta-box { padding:52px 28px; }
-  footer { padding:28px 24px; flex-direction:column; text-align:center; }
-  .footer-links { flex-wrap:wrap; justify-content:center; }
 }
 </style>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2202561457146873');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2202561457146873&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
@@ -390,6 +322,10 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
     <a href="nosotros.html">Über mich</a>
     <a href="contacto.html">Kontakt</a>
     <a href="https://instagram.com/luis.zabala.rodriguez" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
+    <a href="#" onclick="event.preventDefault(); lzrOpenCookieSettings();">Cookies</a>
   </div>
   <div class="footer-copy">© 2026 Luis Zabala Rodriguez · Coach für Coaches</div>
 </footer>
@@ -403,5 +339,7 @@ document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
 });
 </script>
+<script src="assets/cookie-banner.js" defer></script>
+<script src="assets/tracking.js" defer></script>
 </body>
 </html>

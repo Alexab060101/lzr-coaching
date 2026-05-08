@@ -3,22 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="view-transition" content="same-origin" />
+<link rel="stylesheet" href="assets/shared.css" />
+<link rel="stylesheet" href="assets/cookie-banner.css" />
 <title>Coach für Coaches – Sichtbar &amp; Gebucht im DACH-Markt | LZR Coaching</title>
 <meta name="description" content="Luis Zabala Rodriguez hilft Coaches im DACH-Markt, ohne Kaltakquise sichtbar zu werden und Kunden zu gewinnen. Glasklare Positionierung, Content der konvertiert. Kostenloses Erstgespräch." />
 <meta name="robots" content="index, follow" />
 <meta name="author" content="Luis Zabala Rodriguez" />
-<link rel="canonical" href="index.html" />
+<link rel="canonical" href="https://www.zrl-coaching.com/" />
 <meta property="og:title" content="Coach für Coaches – Sichtbar &amp; Gebucht im DACH-Markt" />
 <meta property="og:description" content="Glasklare Positionierung, Content der konvertiert, Kunden ohne Kaltakquise. Coaching für Coaches im DACH-Markt – kostenloses Erstgespräch buchen." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="index.html" />
-<meta property="og:image" content="assets/hero-poster.jpg" />
+<meta property="og:url" content="https://www.zrl-coaching.com/" />
+<meta property="og:image" content="https://www.zrl-coaching.com/assets/hero-poster.jpg" />
 <meta property="og:locale" content="de_DE" />
 <meta property="og:site_name" content="LZR Coaching" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Coach für Coaches – Sichtbar &amp; Gebucht im DACH-Markt" />
 <meta name="twitter:description" content="Glasklare Positionierung, Content der konvertiert, Kunden ohne Kaltakquise. LZR Coaching – kostenloses Erstgespräch." />
-<meta name="twitter:image" content="assets/hero-poster.jpg" />
+<meta name="twitter:image" content="https://www.zrl-coaching.com/assets/hero-poster.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preload" as="image" href="assets/hero-poster.jpg" />
@@ -28,7 +31,7 @@
   "@type": "ProfessionalService",
   "name": "LZR Coaching – Luis Zabala Rodriguez",
   "description": "Coach für Coaches im DACH-Markt. Glasklare Positionierung, Content-Strategie und Kunden-Aufbau ohne Kaltakquise für Coaches in Deutschland, Österreich und der Schweiz.",
-  "url": "index.html",
+  "url": "https://www.zrl-coaching.com/",
   "sameAs": ["https://www.instagram.com/luis.zabala.rodriguez"],
   "areaServed": ["Deutschland", "Österreich", "Schweiz"],
   "serviceType": ["Business Coaching für Coaches", "Positionierungsberatung", "Content-Strategie", "Kunden-Aufbau ohne Kaltakquise"],
@@ -40,28 +43,10 @@
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* index.html: variables, reset, body base ya están en shared.css */
+/* Overrides específicos del home (logo más grande, header con video bg) */
 
-:root {
-  --beige:       #EFE4C8;
-  --beige-light: #F7F0DC;
-  --beige-dark:  #E3D0A8;
-  --gold:        #C9A254;
-  --gold-light:  #E4BF7A;
-  --gold-deep:   #A87D35;
-  --navy:        #1A2C50;
-  --navy-mid:    #263C6B;
-  --navy-soft:   #3A5080;
-  --text:        #1A2C50;
-  --text-mid:    #4A5A78;
-  --text-soft:   #8895A7;
-  --white:       #FAF5E8;
-}
-
-html { scroll-behavior: smooth; }
-body { background: var(--beige-light); color: var(--text); font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
-
-/* ── HEADER ── */
+/* ── HEADER override (logo más grande en home) ── */
 header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
@@ -1672,6 +1657,8 @@ footer::before {
 }
 
 </style>
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','2202561457146873');fbq('track','PageView');</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2202561457146873&ev=PageView&noscript=1"/></noscript>
 </head>
 <body>
 
@@ -1883,6 +1870,10 @@ footer::before {
     <a href="nosotros.html">Über mich</a>
     <a href="contacto.html">Kontakt</a>
     <a href="https://instagram.com/luis.zabala.rodriguez" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
+    <a href="#" onclick="event.preventDefault(); lzrOpenCookieSettings();">Cookies</a>
   </div>
   <div class="footer-copy">© 2026 Luis Zabala Rodriguez · Coach für Coaches</div>
 </footer>
@@ -2378,6 +2369,9 @@ const heroEl = document.getElementById('scroll-hero');
   else window.addEventListener('load', function() { setTimeout(out, 700); });
 })();
 </script>
+<!-- Cookie banner + tracking (Plausible siempre, Pixel con consent) -->
+<script src="assets/cookie-banner.js" defer></script>
+<script src="assets/tracking.js" defer></script>
 <!-- Lenis smooth scroll -->
 <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js" defer></script>
 <script>
