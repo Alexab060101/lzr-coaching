@@ -1660,14 +1660,9 @@ footer::before {
 }
 
 /* === Swiper — Drei Schritte === */
-.hproc-outer {
-  overflow: hidden;
-  padding: 16px 0 56px;
-}
 .hproc-swiper {
-  overflow: visible !important;
-  padding-left: 6vw !important;
-  padding-right: 6vw !important;
+  padding: 16px 6vw 56px !important;
+  box-sizing: border-box;
 }
 .hproc-swiper .swiper-slide { height: auto; }
 .hproc-swiper .h-step { width: 100%; height: 100%; }
@@ -1850,7 +1845,6 @@ footer::before {
       <span class="eyebrow">Der Weg</span>
       <h2>Drei Schritte. <em>Von unsichtbar zu gebucht.</em></h2>
     </div>
-    <div class="hproc-outer">
     <div class="swiper hproc-swiper" id="hproctrack" data-lenis-prevent>
       <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -1879,7 +1873,6 @@ footer::before {
         </div>
       </div>
       <div class="swiper-pagination hproc-pagination"></div>
-    </div>
     </div>
   </div>
 </section>
