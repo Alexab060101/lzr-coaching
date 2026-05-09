@@ -41,7 +41,6 @@
   "priceRange": "<!-- REVISAR -->"
 }
 </script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* index.html: variables, reset, body base ya están en shared.css */
@@ -1659,25 +1658,34 @@ footer::before {
   animation: fadeUp 1s 0.4s both, shimmer 5s 2s linear infinite;
 }
 
-/* === Swiper — Drei Schritte === */
-.hproc-swiper {
-  padding: 16px 6vw 56px !important;
-  box-sizing: border-box;
+/* === Drei Schritte — scroll snap CSS puro === */
+.h-process__track {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 16px 6vw 48px;
+  cursor: grab;
 }
-.hproc-swiper .swiper-slide { height: auto; }
-.hproc-swiper .h-step { width: 100%; height: 100%; }
-.hproc-pagination {
-  bottom: 12px !important;
-  display: flex; align-items: center; justify-content: center; gap: 6px;
+.h-process__track:active { cursor: grabbing; }
+.h-process__track::-webkit-scrollbar { display: none; }
+.h-step {
+  flex: 0 0 min(680px, 78vw);
+  scroll-snap-align: start;
 }
-.hproc-pagination .swiper-pagination-bullet {
-  background: var(--gold-deep); opacity: 0.25;
+.h-step:last-child { margin-right: 6vw; }
+/* dots indicador */
+.hproc-dots {
+  display: flex; justify-content: center; gap: 8px; padding-bottom: 8px;
+}
+.hproc-dot {
   width: 8px; height: 8px; border-radius: 4px;
-  transition: width 0.3s, opacity 0.3s; margin: 0 !important;
+  background: var(--gold-deep); opacity: 0.25;
+  transition: width 0.3s, opacity 0.3s; cursor: pointer;
 }
-.hproc-pagination .swiper-pagination-bullet-active {
-  opacity: 1; width: 28px;
-}
+.hproc-dot.active { opacity: 1; width: 28px; }
 
 /* Reduced motion respeta todos los efectos nuevos */
 @media (prefers-reduced-motion: reduce) {
@@ -1845,34 +1853,30 @@ footer::before {
       <span class="eyebrow">Der Weg</span>
       <h2>Drei Schritte. <em>Von unsichtbar zu gebucht.</em></h2>
     </div>
-    <div class="swiper hproc-swiper" id="hproctrack" data-lenis-prevent>
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <article class="h-step">
-            <span class="h-step__tag">Schritt 01 · Fundament</span>
-            <h3 class="h-step__title">Positionierung <em>schärfen</em></h3>
-            <p class="h-step__body">Wir definieren präzise: Für wen du bist, welches Problem du löst und warum ausgerechnet du. Kein "für alle Coaches". eine Botschaft, in der sich genau dein Idealkunde wiedererkennt.</p>
-            <span class="h-step__num">01</span>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="h-step h-step--accent">
-            <span class="h-step__tag">Schritt 02 · Sichtbarkeit</span>
-            <h3 class="h-step__title">Content der <em>konvertiert</em></h3>
-            <p class="h-step__body">Jeder Post mit Funktion. Du lernst, Inhalte zu erstellen, die nicht Likes. sondern Gespräche und Anfragen. erzeugen. Reproduzierbar, ohne 8 Stunden pro Woche zu posten.</p>
-            <span class="h-step__num">02</span>
-          </article>
-        </div>
-        <div class="swiper-slide">
-          <article class="h-step">
-            <span class="h-step__tag">Schritt 03 · Umsatz</span>
-            <h3 class="h-step__title">Kunden-Prozess <em>aufbauen</em></h3>
-            <p class="h-step__body">Vom ersten DM bis zur Buchung. ein natürlicher Weg. Kein aggressives Verkaufen. Ein Prozess, der sich richtig anfühlt. für dich und deine Kunden.</p>
-            <span class="h-step__num">03</span>
-          </article>
-        </div>
-      </div>
-      <div class="swiper-pagination hproc-pagination"></div>
+    <div class="h-process__track" id="hproctrack" data-lenis-prevent>
+      <article class="h-step">
+        <span class="h-step__tag">Schritt 01 · Fundament</span>
+        <h3 class="h-step__title">Positionierung <em>schärfen</em></h3>
+        <p class="h-step__body">Wir definieren präzise: Für wen du bist, welches Problem du löst und warum ausgerechnet du. Kein "für alle Coaches". eine Botschaft, in der sich genau dein Idealkunde wiedererkennt.</p>
+        <span class="h-step__num">01</span>
+      </article>
+      <article class="h-step h-step--accent">
+        <span class="h-step__tag">Schritt 02 · Sichtbarkeit</span>
+        <h3 class="h-step__title">Content der <em>konvertiert</em></h3>
+        <p class="h-step__body">Jeder Post mit Funktion. Du lernst, Inhalte zu erstellen, die nicht Likes. sondern Gespräche und Anfragen. erzeugen. Reproduzierbar, ohne 8 Stunden pro Woche zu posten.</p>
+        <span class="h-step__num">02</span>
+      </article>
+      <article class="h-step">
+        <span class="h-step__tag">Schritt 03 · Umsatz</span>
+        <h3 class="h-step__title">Kunden-Prozess <em>aufbauen</em></h3>
+        <p class="h-step__body">Vom ersten DM bis zur Buchung. ein natürlicher Weg. Kein aggressives Verkaufen. Ein Prozess, der sich richtig anfühlt. für dich und deine Kunden.</p>
+        <span class="h-step__num">03</span>
+      </article>
+    </div>
+    <div class="hproc-dots" id="hprocDots">
+      <div class="hproc-dot active"></div>
+      <div class="hproc-dot"></div>
+      <div class="hproc-dot"></div>
     </div>
   </div>
 </section>
@@ -2319,20 +2323,19 @@ const heroEl = document.getElementById('scroll-hero');
   obs.observe(el);
 })();
 
-// PROCESS SWIPER — Drei Schritte deslizable
+// PROCESS TRACK — dots sincronizan con scroll snap
 (function() {
-  if (typeof Swiper === 'undefined') return;
-  new Swiper('.hproc-swiper', {
-    slidesPerView: 1.1,
-    spaceBetween: 18,
-    grabCursor: true,
-    loop: false,
-    pagination: { el: '.hproc-pagination', clickable: true },
-    breakpoints: {
-      600:  { slidesPerView: 1.4, spaceBetween: 22 },
-      900:  { slidesPerView: 2.1, spaceBetween: 28 },
-      1200: { slidesPerView: 2.4, spaceBetween: 32 }
-    }
+  var track = document.getElementById('hproctrack');
+  var dots  = document.querySelectorAll('#hprocDots .hproc-dot');
+  if (!track || !dots.length) return;
+  track.addEventListener('scroll', function() {
+    var idx = Math.round(track.scrollLeft / (track.scrollWidth / dots.length));
+    dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+  }, { passive: true });
+  dots.forEach(function(d, i) {
+    d.addEventListener('click', function() {
+      track.scrollTo({ left: i * (track.scrollWidth / dots.length), behavior: 'smooth' });
+    });
   });
 })();
 
@@ -2405,7 +2408,6 @@ window.addEventListener('load', function() {
   requestAnimationFrame(raf);
 });
 </script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <!-- ══ MOTION SKILLS (motion-effects-landing + motion-libraries-vanilla) ══ -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/gsap.min.js" defer></script>
 <script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js" defer></script>
