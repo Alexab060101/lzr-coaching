@@ -2409,23 +2409,17 @@ window.addEventListener('load', function() {
       return setTimeout(initMotion, 60);
     }
 
-    // MOTION-1: Hero title — word-by-word staggered reveal (reemplaza fadeUp plano)
+    // MOTION-1: Hero title — fadeUp con GSAP (SplitType descartado: rompe shimmer en em/outlined)
     if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
       var heroTitle = document.querySelector('.hero-title');
       if (heroTitle) {
         heroTitle.style.animation = 'none';
-        heroTitle.style.opacity   = '1';
-        heroTitle.style.transform = 'none';
-        var split = new SplitType(heroTitle, { types: 'words' });
-        // set invisible ANTES de que el navegador pinte → sin flash
-        gsap.set(split.words, { y: 44, opacity: 0 });
-        gsap.to(split.words, {
-          y: 0,
-          opacity: 1,
-          duration: 0.82,
-          stagger: 0.09,
+        gsap.from(heroTitle, {
+          y: 32,
+          opacity: 0,
+          duration: 1,
           ease: 'power3.out',
-          delay: 0.55
+          delay: 0.45
         });
       }
     }
