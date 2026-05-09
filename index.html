@@ -154,15 +154,15 @@ header.scrolled .nav-tag {
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.5)} }
 .hero-title {
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(3.4rem, 8vw, 7rem); font-weight: 700;
-  line-height: 1.0; color: #fff;
+  font-size: clamp(3.4rem, 7vw, 5.8rem); font-weight: 700;
+  line-height: 1.05; color: #fff;
   animation: fadeUp 1s 0.4s both;
   text-shadow:
     0 2px 8px rgba(0,0,0,0.45),
     0 0 24px rgba(0,0,0,0.35);
 }
-.hero-title em { font-style: italic; color: var(--gold-light); display: block; }
-.hero-title .outlined { -webkit-text-stroke: 2px rgba(255,255,255,0.7); color: transparent; display: block; }
+.hero-title em { font-style: italic; color: var(--gold-light); display: inline; }
+.hero-title .outlined { -webkit-text-stroke: 2px rgba(255,255,255,0.7); color: transparent; display: inline; }
 .hero-sub { display: none; }
 .hero-actions {
   margin-top: 40px; display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
@@ -1712,8 +1712,7 @@ footer::before {
       <div class="hero-badge"><span class="badge-dot"></span>Coach für Coaches · DACH-Markt</div>
       <h1 class="hero-title">
         Dein Coaching.<br>
-        <em>Sichtbar.</em>
-        <span class="outlined">Gebucht.</span>
+        <em>Sichtbar.</em> <span class="outlined">Gebucht.</span>
       </h1>
       <p class="hero-sub">Ich helfe Coaches, ohne Kaltakquise eine glasklare Positionierung und einen Kundenstrom aufzubauen. durch Content, der wirklich konvertiert.</p>
       <div class="hero-actions">
