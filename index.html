@@ -131,6 +131,7 @@ header.scrolled .hamburger span { background: var(--gold-deep); box-shadow: none
 .hero-badge { display: none; }
 .badge-dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; flex-shrink: 0; }
 .nav-tag {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
   display: inline-flex; align-items: center; gap: 8px;
   background: rgba(255,255,255,0.1); backdrop-filter: blur(12px);
   border: 1px solid rgba(201,162,84,0.45);
@@ -1676,9 +1677,9 @@ footer::before {
     <img src="assets/logo.png" alt="LZR Coaching – Luis Zabala Rodriguez, Coach für Coaches">
     <div class="logo-text">Luis Zabala Rodriguez <span>Coach für Coaches</span></div>
   </a>
+  <span class="nav-tag"><span class="badge-dot"></span>Coach für Coaches · DACH-Markt</span>
   <nav>
     <a href="index.html">Start</a>
-    <span class="nav-tag"><span class="badge-dot"></span>Coach für Coaches · DACH-Markt</span>
     <a href="servicios.html">Leistungen</a>
     <a href="nosotros.html">Über mich</a>
     <a href="contacto.html" class="nav-cta">Gespräch buchen</a>
