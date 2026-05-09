@@ -507,8 +507,15 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
     box-shadow: 0 8px 24px rgba(201,162,84,0.35) !important;
   }
   .hero-stats {
-    display: none !important;
+    display: flex !important;
+    bottom: 22px !important;
+    gap: 0 !important;
+    justify-content: space-around !important;
+    padding: 0 12px !important;
   }
+  .hstat-num  { font-size: 1.8rem !important; }
+  .hstat-label { font-size: 0.52rem !important; color: rgba(255,255,255,0.55) !important; }
+  .hstat-div  { display: none !important; }
   .hero-overlay {
     background: linear-gradient(
       180deg,
@@ -519,9 +526,9 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
     ) !important;
   }
 
-  /* Mini stats bar. compacta, después del hero */
+  /* Mini stats bar. oculta en móvil (stats ya visibles en el hero) */
   .mobile-stats-bar {
-    display: flex;
+    display: none;
     justify-content: space-around;
     align-items: center;
     background: var(--navy);
