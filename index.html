@@ -41,6 +41,7 @@
   "priceRange": "<!-- REVISAR -->"
 }
 </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* index.html: variables, reset, body base ya están en shared.css */
@@ -1072,19 +1073,18 @@ body::before {
   color: var(--navy);
 }
 
-/* === Process horizontal pinned === */
+/* === Process slider (Swiper) === */
 .h-process {
   background: var(--white);
-  height: 320vh;
+  padding: 80px 0 72px;
   position: relative;
 }
 .h-process__sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
+  position: relative;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  height: auto;
+  overflow: visible;
 }
 .h-process__head {
   padding: 80px 6vw 0;
@@ -1443,11 +1443,7 @@ body::before {
   .bento-grid { grid-template-columns: 1fr; grid-template-rows: auto; min-height: auto; }
   .bento-card--big { grid-row: auto; min-height: 320px; }
   .viso-grid { max-width: 100%; }
-  .h-process { height: auto; }
-  .h-process__sticky { position: relative; height: auto; }
-  .h-process__track { flex-direction: column; padding: 50px 6vw; gap: 22px; }
-  .h-step { width: 100%; height: auto; min-height: 380px; padding: 36px 28px; }
-  .h-process__progress { display: none; }
+  .h-step { min-height: 340px; padding: 32px 24px; }
   .voices-grid { columns: 1; max-width: 480px; margin-left: auto; margin-right: auto; }
 }
 @media (max-width: 768px) {
@@ -1663,6 +1659,28 @@ footer::before {
   animation: fadeUp 1s 0.4s both, shimmer 5s 2s linear infinite;
 }
 
+/* === Swiper — Drei Schritte === */
+.hproc-swiper {
+  width: 100%;
+  padding: 16px 6vw 56px !important;
+  overflow: visible !important;
+  box-sizing: border-box;
+}
+.hproc-swiper .swiper-slide { height: auto; }
+.hproc-swiper .h-step { width: 100%; height: 100%; }
+.hproc-pagination {
+  bottom: 12px !important;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.hproc-pagination .swiper-pagination-bullet {
+  background: var(--gold-deep); opacity: 0.25;
+  width: 8px; height: 8px; border-radius: 4px;
+  transition: width 0.3s, opacity 0.3s; margin: 0 !important;
+}
+.hproc-pagination .swiper-pagination-bullet-active {
+  opacity: 1; width: 28px;
+}
+
 /* Reduced motion respeta todos los efectos nuevos */
 @media (prefers-reduced-motion: reduce) {
   .hero-video-main, .viso-section::after, .h-scroll-hint,
@@ -1829,28 +1847,35 @@ footer::before {
       <span class="eyebrow">Der Weg</span>
       <h2>Drei Schritte. <em>Von unsichtbar zu gebucht.</em></h2>
     </div>
-    <div class="h-process__track" id="hproctrack">
-      <article class="h-step">
-        <span class="h-step__tag">Schritt 01 · Fundament</span>
-        <h3 class="h-step__title">Positionierung <em>schärfen</em></h3>
-        <p class="h-step__body">Wir definieren präzise: Für wen du bist, welches Problem du löst und warum ausgerechnet du. Kein "für alle Coaches". eine Botschaft, in der sich genau dein Idealkunde wiedererkennt.</p>
-        <span class="h-step__num">01</span>
-      </article>
-      <article class="h-step h-step--accent">
-        <span class="h-step__tag">Schritt 02 · Sichtbarkeit</span>
-        <h3 class="h-step__title">Content der <em>konvertiert</em></h3>
-        <p class="h-step__body">Jeder Post mit Funktion. Du lernst, Inhalte zu erstellen, die nicht Likes. sondern Gespräche und Anfragen. erzeugen. Reproduzierbar, ohne 8 Stunden pro Woche zu posten.</p>
-        <span class="h-step__num">02</span>
-      </article>
-      <article class="h-step">
-        <span class="h-step__tag">Schritt 03 · Umsatz</span>
-        <h3 class="h-step__title">Kunden-Prozess <em>aufbauen</em></h3>
-        <p class="h-step__body">Vom ersten DM bis zur Buchung. ein natürlicher Weg. Kein aggressives Verkaufen. Ein Prozess, der sich richtig anfühlt. für dich und deine Kunden.</p>
-        <span class="h-step__num">03</span>
-      </article>
+    <div class="swiper hproc-swiper" id="hproctrack">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <article class="h-step">
+            <span class="h-step__tag">Schritt 01 · Fundament</span>
+            <h3 class="h-step__title">Positionierung <em>schärfen</em></h3>
+            <p class="h-step__body">Wir definieren präzise: Für wen du bist, welches Problem du löst und warum ausgerechnet du. Kein "für alle Coaches". eine Botschaft, in der sich genau dein Idealkunde wiedererkennt.</p>
+            <span class="h-step__num">01</span>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article class="h-step h-step--accent">
+            <span class="h-step__tag">Schritt 02 · Sichtbarkeit</span>
+            <h3 class="h-step__title">Content der <em>konvertiert</em></h3>
+            <p class="h-step__body">Jeder Post mit Funktion. Du lernst, Inhalte zu erstellen, die nicht Likes. sondern Gespräche und Anfragen. erzeugen. Reproduzierbar, ohne 8 Stunden pro Woche zu posten.</p>
+            <span class="h-step__num">02</span>
+          </article>
+        </div>
+        <div class="swiper-slide">
+          <article class="h-step">
+            <span class="h-step__tag">Schritt 03 · Umsatz</span>
+            <h3 class="h-step__title">Kunden-Prozess <em>aufbauen</em></h3>
+            <p class="h-step__body">Vom ersten DM bis zur Buchung. ein natürlicher Weg. Kein aggressives Verkaufen. Ein Prozess, der sich richtig anfühlt. für dich und deine Kunden.</p>
+            <span class="h-step__num">03</span>
+          </article>
+        </div>
+      </div>
+      <div class="swiper-pagination hproc-pagination"></div>
     </div>
-    <div class="h-process__progress"><div class="h-process__progress-fill" id="hprocFill"></div></div>
-    <div class="h-scroll-hint" id="hScrollHint"><span class="arrow">→</span> Scroll</div>
   </div>
 </section>
 
@@ -2296,37 +2321,21 @@ const heroEl = document.getElementById('scroll-hero');
   obs.observe(el);
 })();
 
-// HORIZONTAL PROCESS PINNED. scroll vertical traduce a horizontal + scroll hint
+// PROCESS SWIPER — Drei Schritte deslizable
 (function() {
-  if (window.matchMedia('(max-width: 960px)').matches) return;
-  var section = document.querySelector('.h-process');
-  var track   = document.getElementById('hproctrack');
-  var fill    = document.getElementById('hprocFill');
-  var hint    = document.getElementById('hScrollHint');
-  if (!section || !track) return;
-
-  function update() {
-    var rect = section.getBoundingClientRect();
-    var sectionTop = -rect.top;
-    var scrollable = section.offsetHeight - window.innerHeight;
-    if (sectionTop < 0 || sectionTop > scrollable) return;
-    var progress = sectionTop / scrollable;
-    var trackWidth = track.scrollWidth;
-    var visibleWidth = window.innerWidth;
-    var maxTranslate = Math.max(0, trackWidth - visibleWidth + 100);
-    track.style.transform = 'translateX(-' + (progress * maxTranslate) + 'px)';
-    if (fill) fill.style.width = (progress * 100) + '%';
-    if (hint) hint.classList.toggle('is-hidden', progress > 0.05);
-  }
-  var ticking = false;
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      requestAnimationFrame(function() { update(); ticking = false; });
-      ticking = true;
+  if (typeof Swiper === 'undefined') return;
+  new Swiper('.hproc-swiper', {
+    slidesPerView: 1.1,
+    spaceBetween: 18,
+    grabCursor: true,
+    loop: false,
+    pagination: { el: '.hproc-pagination', clickable: true },
+    breakpoints: {
+      600:  { slidesPerView: 1.4, spaceBetween: 22 },
+      900:  { slidesPerView: 2.1, spaceBetween: 28 },
+      1200: { slidesPerView: 2.4, spaceBetween: 32 }
     }
-  }, { passive: true });
-  window.addEventListener('resize', update);
-  update();
+  });
 })();
 
 // MOBILE STATS BAR. counter sincronizado al entrar en viewport
@@ -2398,6 +2407,7 @@ window.addEventListener('load', function() {
   requestAnimationFrame(raf);
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <!-- ══ MOTION SKILLS (motion-effects-landing + motion-libraries-vanilla) ══ -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/gsap.min.js" defer></script>
 <script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js" defer></script>
