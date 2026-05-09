@@ -129,16 +129,21 @@ header.scrolled .hamburger span { background: var(--gold-deep); box-shadow: none
   background: var(--gold); transition: width 0.05s linear;
 }
 .hero-badge { display: none; }
-.badge-dot { display: none; }
+.badge-dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; animation: pulse 2s infinite; flex-shrink: 0; }
 .nav-tag {
-  font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-  color: rgba(201,162,84,0.9);
-  border-left: 1px solid rgba(255,255,255,0.2);
-  padding-left: 18px;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.1); backdrop-filter: blur(12px);
+  border: 1px solid rgba(201,162,84,0.45);
+  padding: 6px 16px; border-radius: 100px;
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold-light);
   pointer-events: none; white-space: nowrap;
-  transition: color 0.4s;
 }
-header.scrolled .nav-tag { color: var(--gold-deep); border-color: rgba(0,0,0,0.15); }
+header.scrolled .nav-tag {
+  background: rgba(201,162,84,0.1);
+  border-color: rgba(201,162,84,0.5);
+  color: var(--gold-deep);
+}
 @media (max-width: 960px) { .nav-tag { display: none; } }
 @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.5)} }
 .hero-title {
@@ -1673,7 +1678,7 @@ footer::before {
   </a>
   <nav>
     <a href="index.html">Start</a>
-    <span class="nav-tag">Coach für Coaches · DACH-Markt</span>
+    <span class="nav-tag"><span class="badge-dot"></span>Coach für Coaches · DACH-Markt</span>
     <a href="servicios.html">Leistungen</a>
     <a href="nosotros.html">Über mich</a>
     <a href="contacto.html" class="nav-cta">Gespräch buchen</a>
