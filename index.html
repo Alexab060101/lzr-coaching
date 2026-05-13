@@ -663,6 +663,91 @@ footer { background:var(--navy); padding:40px 52px; display:flex; align-items:ce
   .testi-grid { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
 }
 
+/* ── Botón "Alle Stimmen ansehen" + Modal ── */
+.testi-more-wrap { text-align: center; margin-top: 40px; }
+.testi-more-btn {
+  background: transparent;
+  border: 1.5px solid var(--gold);
+  color: var(--navy);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 14px 28px; border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, transform 0.2s;
+}
+.testi-more-btn:hover {
+  background: var(--gold);
+  color: var(--navy);
+  transform: translateY(-2px);
+}
+.testi-modal {
+  width: 92vw; max-width: 720px;
+  max-height: 88vh;
+  padding: 0;
+  background: var(--white);
+  border: 1px solid rgba(201,162,84,0.3);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(26,44,80,0.35);
+}
+.testi-modal:not([open]) { display: none !important; }
+.testi-modal[open] { display: flex; flex-direction: column; }
+.testi-modal::backdrop {
+  background: rgba(26,44,80,0.72);
+  backdrop-filter: blur(6px);
+}
+.testi-modal-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 26px;
+  background: var(--navy); color: var(--gold-light);
+  border-bottom: 1px solid rgba(201,162,84,0.25);
+  flex-shrink: 0;
+}
+.testi-modal-bar h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600;
+  color: var(--gold-light);
+  margin: 0;
+}
+.testi-modal-close {
+  background: rgba(255,255,255,0.08); border: none;
+  width: 32px; height: 32px; border-radius: 50%;
+  color: var(--gold-light);
+  font-size: 16px; line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.testi-modal-close:hover { background: rgba(255,255,255,0.18); }
+.testi-modal-body {
+  overflow-y: auto;
+  padding: 26px;
+  display: flex; flex-direction: column; gap: 22px;
+}
+.testi-modal-card {
+  background: var(--beige-light);
+  border: 1px solid rgba(201,162,84,0.18);
+  border-radius: 14px;
+  padding: 24px 26px;
+}
+.testi-modal-card .testi-stars { color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 12px; }
+.testi-modal-card p {
+  font-size: 0.92rem;
+  color: var(--text-mid);
+  line-height: 1.75;
+  font-style: italic;
+  margin: 0 0 18px;
+}
+.testi-modal-card p strong { color: var(--navy); font-style: normal; }
+.testi-modal-author strong { display: block; font-size: 0.85rem; color: var(--navy); font-weight: 700; }
+.testi-modal-author span { font-size: 0.72rem; color: var(--text-soft); }
+@media (max-width: 640px) {
+  .testi-modal { width: 100vw; height: 100vh; max-height: 100vh; border-radius: 0; }
+  .testi-modal-bar h3 { font-size: 1.1rem; }
+  .testi-modal-body { padding: 18px; }
+}
+
 /* ══ PREMIUM EFFECTS ══ */
 
 /* Cursor personalizado. solo desktop */
@@ -1925,8 +2010,58 @@ footer::before {
         </div>
       </div>
     </div>
+    <div class="testi-more-wrap reveal reveal-delay-3">
+      <button type="button" class="testi-more-btn" id="testiMoreBtn">Alle Stimmen ansehen →</button>
+    </div>
   </div>
 </section>
+
+<!-- TESTIMONIALS MODAL -->
+<dialog class="testi-modal" id="testiModal" aria-labelledby="testiModalTitle">
+  <div class="testi-modal-bar">
+    <h3 id="testiModalTitle">Alle Stimmen aus dem Programm</h3>
+    <button type="button" class="testi-modal-close" id="testiModalClose" aria-label="Schließen">✕</button>
+  </div>
+  <div class="testi-modal-body">
+
+    <div class="testi-modal-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>„Es ist wirklich der Wahnsinn — ich bin erst seit November bei dir. Allein in den letzten zwei Wochen habe ich <strong>34k Umsatz</strong> gemacht, und es werden immer mehr Interessenten. Durch dein Konzept habe ich endlich den Wert meines Coachings erkannt."</p>
+      <div class="testi-modal-author">
+        <strong>Business Coach · DACH</strong>
+        <span>Klientin seit November</span>
+      </div>
+    </div>
+
+    <div class="testi-modal-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>„Seit fast zwei Monaten arbeiten wir zusammen. Ich liebe deine direkte Art und wie du mir liebevoll in den Hintern trittst. Durch unsere Zusammenarbeit habe ich mein zweites Paket verkauft und insgesamt <strong>9.000 € netto verdient</strong>. Danke, dass du an mich glaubst — auch wenn ich es selbst nicht tue."</p>
+      <div class="testi-modal-author">
+        <strong>Coach · DACH</strong>
+        <span>2 Monate Begleitung</span>
+      </div>
+    </div>
+
+    <div class="testi-modal-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>„Alsoooo Luis, du bist echt der Hammer! Immer motiviert, positiv gelaunt — und steckst mich mit deiner Ruhe an. <strong>Wegen dir habe ich meine ersten Ziele erreicht</strong> und werde die nächsten auch mit dir erreichen. Die Videocalls machen extrem viel Spaß, man kann mit dir über krasse Themen reden. Danke für deine große Hilfe!"</p>
+      <div class="testi-modal-author">
+        <strong>Emilia</strong>
+        <span>@jo.jasper</span>
+      </div>
+    </div>
+
+    <div class="testi-modal-card">
+      <div class="testi-stars">★★★★★</div>
+      <p>„Lieber Luis, ich möchte dir meinen herzensdank aussprechen für die Zeit, die du dir für mich genommen hast. Schale für Schale bricht das alte weg und macht Platz für neues. Zu jederzeit habe ich mich getragen, gehalten und geliebt und verstanden gefühlt. Danke für diese magische Begleitung durch dein Programm."</p>
+      <div class="testi-modal-author">
+        <strong>Spirituelle Energiequelle</strong>
+        <span>@spirituelle_energie_quelle</span>
+      </div>
+    </div>
+
+  </div>
+</dialog>
 
 <!-- 6. STAT HERO BLOCK. un solo número masivo (Tony Robbins style limpio) -->
 <section class="stathero-section">
@@ -2495,6 +2630,18 @@ window.addEventListener('load', function() {
   }
   initMotion();
 });
+
+// Testimonials modal
+(function(){
+  const btn = document.getElementById('testiMoreBtn');
+  const modal = document.getElementById('testiModal');
+  const close = document.getElementById('testiModalClose');
+  if (!btn || !modal || !close) return;
+  btn.addEventListener('click', () => { modal.showModal(); document.body.style.overflow = 'hidden'; });
+  close.addEventListener('click', () => { modal.close(); document.body.style.overflow = ''; });
+  modal.addEventListener('click', e => { if (e.target === modal) { modal.close(); document.body.style.overflow = ''; } });
+  modal.addEventListener('cancel', e => { document.body.style.overflow = ''; });
+})();
 </script>
 </body>
 </html>
